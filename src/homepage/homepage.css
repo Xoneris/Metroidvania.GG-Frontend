@@ -1,0 +1,743 @@
+/* --------------- */
+/* GENERAL SECTION */
+/* --------------- */
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #eeeeee;
+}
+
+main {
+    
+    display: block;
+    width: 100%;
+    min-height: 100%;
+}
+
+h2 {
+    margin: 0;
+    padding-left: 5px;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+/* --------------------------- */
+/* HEADER & NAVIGATION SECTION */
+/* --------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #111111;
+    border-bottom: 1px solid black; 
+}
+
+.logo {
+    display: flex;
+    height: 50px;
+    margin: auto;
+    color: #dd8500;
+}
+
+.logo img {
+    padding: 5px;
+}
+
+.logo h1 {
+    margin: 0px;
+}
+
+header a {
+    text-decoration: none;
+    color: #999999;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 50px;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+
+header ul li {
+    display: block;
+    width: 150px;
+    list-style: none;
+    text-align: center;
+}
+
+nav {
+    font-size: 1.1rem;
+}
+
+nav a, nav:visited {
+    text-decoration: none;
+    border: 3px solid transparent;
+}
+
+nav .active {
+    border-bottom: 3px solid #dd8500;
+}
+
+nav a:hover {
+    border-bottom: 3px solid #dd8500;
+}
+
+.dropdown-item {
+    color: #999999;
+    position: relative;
+    border: 3px solid transparent;
+}
+
+.dropdown-item:hover {
+    border-bottom: 3px solid #dd8500;
+}
+
+.dropdown-item:hover .dropdown-content {
+    display: block;
+    animation: 3s infinite alternate slidein;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 26px;
+    left: -3px;
+    border: 1px solid black;
+    background-color: #111111;
+    z-index: 1;
+}
+
+.dropdown-content ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content a {
+    padding: 0;
+    border: 3px solid transparent;
+}
+
+@keyframes dropdown-hover {
+    from {
+        background-color: #111111;
+        color: #999999;
+    }
+    to {
+        background-color: #dd8500;
+        color: #111111;
+    }
+}
+
+.dropdown-content a:hover {
+    background-color: #dd8500;
+    color: #111111;
+    animation: dropdown-hover;
+    animation-duration: 0.5s;
+    border: 3px solid transparent;
+}
+
+.dropdown-content .active {
+    background-color: #dd8500;
+    color: #111111;
+}
+
+.responsive-menu-icon {
+    display: none;
+}
+
+.responsive-nav-menu {
+    display: none;
+}
+
+/* ------------ */
+/* HERO SECTION */
+/* ------------ */
+
+.Hero {
+    
+    /* width: 1400px; */
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.HeroLeft, .HeroRight {
+    margin: 5px;
+}
+
+.HeroLeft {
+    flex-grow: 1;
+}
+
+.HeroLeft #vid {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.HeroLeft .wrapper {
+    position: relative;
+}
+
+.HeroLeft .wrapper div {
+    position: absolute;
+    bottom: 0px;
+    color:white;
+    width:100%;
+    height:15%;
+    padding: 5px 15px 5px 5px;
+    background-color: rgb(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: right;
+}
+
+.HeroLeft h2 {
+    padding: 0px;
+}
+
+.HeroRight {
+    display: flex;
+    flex-direction: column;
+}
+
+.HeroRight div {
+    display: block;
+    position: relative;
+    margin: auto;
+}
+
+.HeroRight div .Game {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 5px;
+}
+
+.HeroRight div .Game:hover span {
+    color: orange;
+}
+
+.HeroRight div #vid {
+    width: 100%;
+}
+
+.HeroRight div img {
+    width:100%;
+    border-radius: 15px;
+}
+
+/* ------------------------- */
+/* FRONTPAGE CONTENT SECTION */
+/* ------------------------- */
+
+.Home {
+    display: block;
+    width: 100%;
+}
+
+.FrontpageSection {
+    display:block;
+    margin: 0;
+    padding: 10px;
+}
+
+.FrontpageSectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.FrontpageSectionTitle a {
+    color: #999999;
+    text-decoration: none;
+}
+
+.FrontpageSectionTitle a:hover {
+    text-decoration: underline;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    width: 100%;
+}
+
+.wrapper a {
+    display: contents;
+}
+
+@keyframes example3 {
+    from {
+        transform: scale(1.1);
+        box-shadow: 5px 5px 5px black;
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.Game {
+    /* width: 460px;
+    height: 215px; */
+    /* 322 x 150.5 */
+    
+    width: 322px;    
+    border-radius: 15px;
+    position: relative;
+    margin: 5px;
+
+    animation-name: example3;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.Game img {
+    display: block;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-sizing: border-box;
+    perspective: 1px;
+    width: 100%;
+}
+
+@keyframes example {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+        box-shadow: 5px 5px 5px black;
+    }
+  }
+  
+.Game:hover { 
+    z-index: 1;
+    animation-name: example;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes example2 {
+    from {
+        color: white;
+    }
+    to {
+        color: orange;
+    }
+  }
+
+.Game:hover span {
+    animation-name: example2;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+
+}
+
+.Game span {
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.7);
+    position: absolute;
+    padding: 0 3px 3px 3px;
+    bottom: 5px;
+    left: 5px;
+    border-radius: 5px;
+}
+
+
+
+/* ------------------- */
+/* SINGLE PAGE SECTION */
+/* ------------------- */
+
+.PageContent {
+    padding: 10px;
+}
+
+.PageContent .wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.PageContent .Game {
+    margin: 5px;
+}
+
+/* ----------------- */
+/* ALL GAMES SECTION */
+/* ----------------- */
+
+.AllGames {
+    padding: 10px;
+}
+
+.AllGames .wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.AllGames ul {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+}
+
+.AllGames li {
+    list-style: none;
+    width: 30px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.AllGames a {
+    text-decoration: none;
+}
+
+/* ----------------- */
+/* RELEASED SECTION  */
+/* ----------------- */
+
+.Released {
+    padding: 10px;
+}
+
+.Released ul {
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+}
+
+.Released li {
+    list-style: none;
+    width: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.Released a {
+    text-decoration: none;
+}
+
+.Released button {
+    margin: 5px;
+    font-size: 1.1rem;
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.Released button:hover {
+    transform: scale(1.1);
+}
+
+/* ----------------- */
+/*  CONTACT SECTION  */
+/* ----------------- */
+
+.contactPage {
+    padding: 10px;
+}
+
+.flex-test {
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.contactForm {
+    border: 1px solid green;
+}
+
+input, button, select {
+    border-radius: 15px;
+    padding: 5px;
+}
+
+
+
+/* ----------------- */
+/* GAME VIEW SECTION */
+/* ----------------- */
+
+.GameView {
+    display: flex;
+    justify-content: center;
+    /* width: 1210px; */
+    margin: 10px auto;
+    padding: 5px;
+}
+
+/* .GameView-left,
+.GameView-right {
+    border: 1px solid green;
+} */
+
+.GameView h2, .GameView h3 {
+    margin: 2px 0;
+    padding: 0px;
+}
+
+.GameView-left img,
+.GameView-right iframe {
+    border-radius: 15px;
+}
+
+.GameView-left img {
+    width: 100%;
+    max-width: 460px;
+}
+
+.GameView iframe {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px black;
+}
+
+.GameView-right span {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.GameView-left img {
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px black;
+    margin-top: 11px;
+}
+
+.GameView-left, .GameView-right {
+    padding: 5px;
+    margin: 1px;
+}
+
+.GameSocialMedia {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.GameSocialMedia li {
+    list-style: none;
+}
+
+.GameSocialMedia .social-icon:hover {
+    transform: scale(1.2);
+}
+
+.GamePlatforms {
+    display: flex;
+}
+
+.GamePlatforms li {
+    list-style: none;
+}
+
+.GamePlatforms img {
+    width: 32px;
+    padding: 0 10px;
+}
+
+.GamePlatforms img:hover {
+    transform: scale(1.2);
+}
+
+/* -------------- */
+/* FOOTER SECTION */
+/* -------------- */
+
+footer {
+    color: #999999;
+    background-color: #111111;
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+    border-top: 1px solid black;
+    margin-top: auto;
+}
+
+footer h2 {
+    color: #dd8500;
+}
+
+footer .wrapper {
+    flex-wrap: wrap;
+}
+
+.footerContent {
+    display: block;
+    width: 25%;
+    height: 150px;
+}
+
+.footerContent img {
+    height: 90%;
+    padding: 5px;
+}
+
+.footerContent ul {
+    padding: 0px;
+    list-style: none;
+}
+
+footer .social-icon {
+    margin: 5px;
+}
+
+footer .social-icon:hover {
+    transform: scale(1.2);
+}
+
+.copyright {
+    border-top: 1px solid black;
+    padding: 2px 0;
+    background-color: #0b0b0b;
+}
+
+.copyright a {
+    color: #dd8500;
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------ */
+/* RESPONSIVE SECTION */
+/* ------------------ */
+
+@media (max-width: 1260px) {
+    .logo h1 {
+            display: none;
+    }
+}
+
+@media (max-width: 1220px) {
+
+}
+
+@media (max-width: 1000px) {
+    header {
+        position: fixed;
+        z-index: 2;
+    }
+    
+    main {
+        margin-top: 50px;
+    }
+
+    nav ul {
+        display: none;
+    }
+    
+    .responsive-menu-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        padding-right: 10px;
+    }
+    
+    .responsive-menu-icon span {
+        width: 45px;
+        height: 7px;
+        border-top: 3px solid #dd8500;
+    }
+    
+    .responsive-nav-menu {
+        position: fixed;
+        right: 0px;
+        
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        background-color: #111111dd;
+    }
+
+    #open, 
+    #open ul {
+        display: block;
+    }
+
+    #closed,
+    #closed ul {
+        display: none;
+    }
+
+    .responsive-nav-menu ul {
+        height: 100%;
+    }
+
+    .responsive-nav-menu li {
+        width: 240px;
+        padding-left: 15px;
+        margin: 5px 0;
+        text-align: left;
+        color: #999999;
+    }
+
+    .responsive-nav-menu hr {
+        margin: 0 10px;
+        border: 1px solid #999999;
+    }
+
+    .responsive-menu-icon li ul {
+        border-bottom: 1px solid green;
+    }
+
+    .responsive-nav-menu a {
+        display: block;
+        border: 0px solid transparent
+    }
+
+    .responsive-nav-menu a:hover {
+        background-color: #dd8500;
+        border-bottom: 0px solid transparent;
+    }
+
+    .responsive-nav-menu .active {
+        color: #dd8500;
+    }
+
+    .GameView {
+        display: block;
+    }
+
+    .GameView img {
+        display: block;
+        margin: auto;
+    }
+
+    .footerContent {
+        width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .footerContent {
+        width: 100%;
+    }
+}
