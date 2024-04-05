@@ -1,21 +1,26 @@
 import { useState, useEffect, useContext } from "react";
 import GameThumbnail from "./GameThumbnail";
 import { apiUrlContext } from "../Homepage";
+import Loading from "./Loading";
 
 function AllGames () {
 
     const [gamesData, setGamesData] = useState([]);
+    const [loading, setLoading] = useState(false);
     const apiBaseUrl = useContext(apiUrlContext);
 
     let alphabet = [];
     let chr; 
 
     useEffect(() => {
-
-       fetch(apiBaseUrl + "/api/games/")
-        .then((response) => {return response.json()})
-        .then(data => setGamesData(data))     
-        .catch((error) => console.log(error))
+        setLoading(true)
+        fetch(apiBaseUrl + "/api/games/")
+           .then((response) => {return response.json()})
+           .then(data => {
+               setGamesData(data)
+               setLoading(false)
+           })
+           .catch((error) => console.log(error))
 
         window.scrollTo(0, 0);
       }, []);
@@ -23,6 +28,10 @@ function AllGames () {
     for (let i = 0; i < 26; i++) {
         chr = String.fromCharCode(65 + i);
         alphabet.push(chr);
+    }
+
+    if (loading) {
+        return <Loading/>;
     }
 
     return (

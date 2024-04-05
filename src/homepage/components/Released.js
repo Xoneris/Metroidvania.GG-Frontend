@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import GameThumbnail from "./GameThumbnail";
 import { apiUrlContext } from "../Homepage";
+import Loading from "./Loading";
 
 function Released() {
 
@@ -59,17 +60,26 @@ function Released() {
 
     const [gamesData, setGamesData] = useState([]);
     const [yearSelect, setYearSelect] = useState('2024');
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
+        setLoading(true);
         fetch(apiBaseUrl + "/api/games/recentlyreleased/")
         .then((response) => {return response.json()})
-        .then(data => setGamesData(data))
+        .then(data => {
+            setGamesData(data);
+            setLoading(false);
+        })
         .catch((error) => console.log(error))
 
         window.scrollTo(0, 0);
       }, []);
 
     
+    if (loading) {
+        return <Loading/>
+    }
+
     return (
         <section className="Released">
             <h2>Released Games of {yearSelect}</h2>

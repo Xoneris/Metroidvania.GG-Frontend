@@ -2,11 +2,14 @@ import {useState, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import GameThumbnail from './GameThumbnail';
 import { apiUrlContext } from '../Homepage';
+import Loading from './Loading';
 
 function FrontpageContentSection (props) {
 
     const [gamesData, setGamesData] = useState([]);
     const apiBaseUrl = useContext(apiUrlContext);
+
+    const [loading, setLoading] = useState(false)
 
     let SectionName;
     let fetchUrl;
@@ -52,12 +55,26 @@ function FrontpageContentSection (props) {
 
 
   useEffect(() => {
+    setLoading(true);
     fetch(fetchUrl)
     .then((response) => {return response.json()})
-    .then(data => setGamesData(data))
+    .then(data => {
+        setGamesData(data);
+        setLoading(false);
+    })
     .catch((error) => console.log(error))
 
   }, [fetchUrl]);
+
+    // if (loading) {
+    //     return <Loading/>
+    // }
+
+  const gameMapping = () => {
+    return gamesData.slice(0,5).map(game => (
+        <GameThumbnail game={game} key={game.id}/>
+    ))
+  }
 
     return (
         <section className="FrontpageSection" id={props.SectionIdentifier}>
@@ -71,9 +88,15 @@ function FrontpageContentSection (props) {
             </div>
             <hr/>
             <div className="wrapper">
-                {gamesData.slice(0,5).map(game => (
+                {/* {gamesData.slice(0,5).map(game => (
                     <GameThumbnail game={game} key={game.id}/>
-                ))}
+                ))} */}
+                {
+                    loading ? 
+                    <Loading/> :
+                    gameMapping()
+                    
+                }
             </div>
         </section>
     )

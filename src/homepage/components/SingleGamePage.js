@@ -19,12 +19,12 @@ function SingleGamePage (props) {
     
         setLoading(true)
         fetch(fetchUrl)
-        .then((response) => {return response.json()})
-        .then(data => {
-            setGamesData(data)
-            setLoading(false)
-        })
-        .catch((error) => console.log(error))
+            .then((response) => {return response.json()})
+            .then(data => {
+                setGamesData(data)
+                setLoading(false)
+            })
+            .catch((error) => console.log(error))
 
         window.scrollTo(0, 0)
     }, [fetchUrl]);

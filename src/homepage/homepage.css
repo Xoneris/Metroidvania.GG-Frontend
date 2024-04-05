@@ -10,9 +10,12 @@
 }
 
 main {
-    
-    display: block;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
     min-height: 100%;
 }
 
@@ -163,13 +166,27 @@ nav a:hover {
 /* LOADING SECTION */
 /* --------------- */
 
-.LoadingAnimation {
+.LoadingComponent {
+    flex-grow: 1;
     display: flex;
-    flex-direction: row;
-
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #dd8500;
+    height: 100%;
+}
+
+.LoadingSpinner {
+    border: 8px solid #999999; 
+    border-top: 8px solid #dd8500; 
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 

@@ -1,8 +1,8 @@
 function Loading () {
 
     return (
-        <section className="LoadingAnimation">
-            <h2>Loading...</h2>
+        <section className="LoadingComponent">
+            <div className="LoadingSpinner"></div>
         </section>
     )
 }
