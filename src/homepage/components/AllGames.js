@@ -12,7 +12,7 @@ function AllGames () {
 
     useEffect(() => {
 
-        fetch(apiBaseUrl + "/api/games/")
+       fetch(apiBaseUrl + "/api/games/")
         .then((response) => {return response.json()})
         .then(data => setGamesData(data))     
         .catch((error) => console.log(error))

@@ -1,24 +1,37 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext, Suspense } from 'react';
 import { SocialIcon } from 'react-social-icons'
 import { replaceMonthWithName } from "./functions";
 import { apiUrlContext } from "../Homepage";
 
-function SingleGamePage () {
+import Loading from "./Loading";
+
+function SingleGamePage (props) {
 
     const { gameSlug } = useParams();
     const [gamesData, setGamesData] = useState([]);
     const apiBaseUrl = useContext(apiUrlContext);
     const fetchUrl = apiBaseUrl + "/api/games/" + gameSlug;
 
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
+    
+        setLoading(true)
         fetch(fetchUrl)
         .then((response) => {return response.json()})
-        .then(data => setGamesData(data))
+        .then(data => {
+            setGamesData(data)
+            setLoading(false)
+        })
         .catch((error) => console.log(error))
 
         window.scrollTo(0, 0)
     }, [fetchUrl]);
+
+    if (loading) {
+        return <Loading/>
+    }
 
     return (
         <div className="GameView">
@@ -69,7 +82,6 @@ function SingleGamePage () {
                     { gamesData.nintendo && (<li><a href={gamesData.nintendo} target="_blank"><img src="/assets/icons/nintendo-switch.png" alt="Nintendo Switch Logo" /></a></li>) }
                 </ul>
             </div>
-            
         </div>
     )
 }

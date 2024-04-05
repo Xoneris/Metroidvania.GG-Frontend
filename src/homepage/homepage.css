@@ -159,6 +159,20 @@ nav a:hover {
     display: none;
 }
 
+/* --------------- */
+/* LOADING SECTION */
+/* --------------- */
+
+.LoadingAnimation {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    background-color: #dd8500;
+}
+
+
 /* ------------ */
 /* HERO SECTION */
 /* ------------ */
