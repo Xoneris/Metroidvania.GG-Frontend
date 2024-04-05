@@ -710,13 +710,44 @@ footer .social-icon:hover {
         background-color: #111111dd;
     }
 
+    @keyframes burger-menu-open {
+        from {
+            display:none;
+            height: 0%;
+            opacity: 0;
+        }
+        to {
+            height: 100%;
+            opacity: 1;
+        }
+      }
+
+      @keyframes burger-menu-close {
+        from {
+            display: block;
+            height: 100%;
+            opacity: 1;
+        }
+        to {
+            height: 0%;
+            opacity: 0;
+            
+        }
+      }
+
     #open, 
     #open ul {
+        
+        animation-name: burger-menu-open;
+        animation-duration: 0.7s;
         display: block;
     }
 
     #closed,
     #closed ul {
+        
+        animation-name: burger-menu-close;
+        animation-duration: 0.7s;
         display: none;
     }
 
