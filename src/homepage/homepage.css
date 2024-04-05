@@ -28,22 +28,34 @@ hr {
     border: 1px solid black;
 }
 
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    width: 100%;
+}
+
 /* --------------------------- */
 /* HEADER & NAVIGATION SECTION */
 /* --------------------------- */
 
 header {
-    display: flex;
-    justify-content: space-between;
+    display: block;
     width: 100%;
     background-color: #111111;
     border-bottom: 1px solid black; 
 }
 
+header .wrapper {
+    max-width: 1920px;
+    margin: auto;
+    justify-content: space-between;
+}
+
 .logo {
     display: flex;
     height: 50px;
-    margin: auto;
     color: #dd8500;
 }
 
@@ -295,18 +307,6 @@ nav a:hover {
 
 .FrontpageSectionTitle a:hover {
     text-decoration: underline;
-}
-
-.wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: center;
-    width: 100%;
-}
-
-.wrapper a {
-    display: contents;
 }
 
 @keyframes example3 {
@@ -614,6 +614,8 @@ footer h2 {
 
 footer .wrapper {
     flex-wrap: wrap;
+    max-width: 1920px;
+    margin: auto;
 }
 
 .footerContent {
