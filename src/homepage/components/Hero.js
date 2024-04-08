@@ -1,74 +1,68 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import GameThumbnail from './GameThumbnail';
 import { Link } from 'react-router-dom';
+import { apiUrlContext } from "../Homepage";
+import Loading from './Loading';
 
 function Hero () {
 
-  const [gamesData, setGamesData] = useState([]);
-  const [heroGame, setHeroGame] = useState({});
+    const [gamesData, setGamesData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-  const FetchHeroGames = async () => {
-    await fetch('http://192.168.1.11:8000/api/games/')
+    const [randomHook, setRandomHook] = useState();
+
+    const apiBaseUrl = useContext(apiUrlContext);
+
+    useEffect(() => {
+        setLoading(true);
+
+        fetch(apiBaseUrl + "/api/games/")
         .then((response) => {return response.json()})
-        .then(data => setGamesData(data))
+        .then(data => {
+            setGamesData(data);
+            setLoading(false);
+        })
         .catch((error) => console.log(error))
 
-    // await fetch('http://127.0.0.1:8000/api/games/hero/trailer/')
-    //     .then((response) => {return response.json()})
-    //     .then(data => setHeroGame(data))
-    //     .catch((error) => console.log(error))
+    }, []);
 
-    // const response = await fetch('http://127.0.0.1:8000/api/games/hero/trailer/');
-    // const data = await response.json();
-    // setHeroGame(data);
-  }
+    // const changeHeroVideo = (gameId) => {
+    //     setRandomHook(gameId)
+    // }
 
-
-  useEffect(() => {
-    FetchHeroGames();
-  }, []);
+    if (loading) {
+        return <Loading/>
+    }
 
     return (
-        <section className='Hero'>
-            <div className='HeroLeft'>
-                <div className='wrapper'>
-                    {gamesData.filter((game) => game.name === "Dewborne Dawn").map(game => (
-                    <Link to={"/" + game.slug} key={game.id}>
-                        <video id="vid" loop autoPlay muted >
-                            <source src={"../assets/videos/"+game.slug+".webm"} type="video/webm"></source>
-                            <source src={"../assets/videos/"+game.slug+".mp4"} type="video/mp4"></source>
-                        </video>
-                        <div>
-                            <h2>{game.name}</h2>
-                            <span>{game.release_date ? game.release_date : game.release_window}</span>
+        <section className="Hero">
+            <div className="wrapper">
+                <div className="HeroLeft">
+                    {gamesData.slice(0,1).map(game => (
+                        <iframe title={game.name}
+                        src={"https://www.youtube.com/embed/"+game.trailer}>
+                        </iframe>
+                    ))
+                    }
+                    {/* <h2>{randomHook}</h2> */}
+                </div>
+                <div className="HeroRight">
+                    {gamesData.slice(0,4).map(game => (
+                        <div id='active'>
+                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} alt={game.name} onClick={() => {setRandomHook(game.id)}} />
+                            <p>Text</p>
                         </div>
-                    </Link>
                     ))}
+                    {/* <span>Live on Kickstarter</span>
+                    <img src={'/assets/thumbnails/' + gamesData[0].slug + '.jpg'} alt={gamesData[0].name} onClick={changeHeroVideo} />
+                    <span>Latest Release</span>
+                    <img src={'/assets/thumbnails/' + gamesData[1].slug + '.jpg'} alt={gamesData[1].name} onClick={changeHeroVideo} />
+                    <span>Coming out soon</span>
+                    <img src={'/assets/thumbnails/' + gamesData[2].slug + '.jpg'} alt={gamesData[2].name} onClick={changeHeroVideo} />
+                    <span>Early Access</span>
+                    <img src={'/assets/thumbnails/' + gamesData[3].slug + '.jpg'} alt={gamesData[3].name} onClick={changeHeroVideo} /> */}
                 </div>
             </div>
-            {/* <div className='HeroRight'>
-                <div>
-                    <h2>Live on Kickstarter</h2>
-                    <hr/>
-                    {gamesData.slice(0,1).map(game => (
-                        <GameThumbnail game={game} key={game.id}/>
-                    ))}
-                </div>
-                <div>
-                    <h2>Live on Kickstarter</h2>
-                    <hr/>
-                    {gamesData.slice(0,1).map(game => (
-                        <GameThumbnail game={game} key={game.id}/>
-                    ))}
-                </div>
-                <div>
-                    <h2>Live on Kickstarter</h2>
-                    <hr/>
-                    {gamesData.slice(0,1).map(game => (
-                        <GameThumbnail game={game} key={game.id}/>
-                    ))}
-                </div>
-            </div> */}
         </section>
     )
 }

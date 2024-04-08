@@ -5,7 +5,7 @@ function Home () {
 
     return (
         <div className='Home'>
-            {/* <Hero /> */}
+            <Hero />
             <FrontpageContentSection SectionIdentifier="ComingSoon"/>
             <FrontpageContentSection SectionIdentifier="Released"/>
             <FrontpageContentSection SectionIdentifier="Demo"/>
