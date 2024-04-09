@@ -36,7 +36,7 @@ function SinglePage (props) {
             break;
         case "Kickstarter":
             pageName = "Upcoming Kickstarters";
-            fetchUrl = apiBaseUrl + "/api/games/upcomingkickstarter/"
+            fetchUrl = apiBaseUrl + "/api/games/kickstarter/upcoming/"
             break;
     }
 

@@ -1,11 +1,13 @@
 import Hero from './Hero';
 import FrontpageContentSection from './FrontpageContentSection';
+import Hero2 from './Hero2';
 
 function Home () {
 
     return (
         <div className='Home'>
             <Hero />
+            {/* <Hero2/> */}
             <FrontpageContentSection SectionIdentifier="ComingSoon"/>
             <FrontpageContentSection SectionIdentifier="Released"/>
             <FrontpageContentSection SectionIdentifier="Demo"/>
