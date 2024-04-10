@@ -13,7 +13,7 @@ function Hero () {
     const [comingSoonGame, setComingSoonGame] =  useState([]);
     const [earlyAccessGame, setEarlyAccessGame] = useState([]);
 
-    const [heroTrailer, setHeroTrailer] = useState();
+    const [heroTrailer, setHeroTrailer] = useState([]);
 
     const apiBaseUrl = useContext(apiUrlContext);
 
@@ -23,7 +23,10 @@ function Hero () {
 
         fetch(apiBaseUrl + "/api/games/kickstarter/live/")
         .then((response) => {return response.json()})
-        .then(data => {setKickstarterGame(data)})
+        .then(data => {
+            setKickstarterGame(data)
+            setHeroTrailer(data[0])
+        })
         .catch((error) => console.log(error))
 
         fetch(apiBaseUrl + "/api/games/recentlyreleased/")
@@ -41,14 +44,8 @@ function Hero () {
         .then(data => {setEarlyAccessGame(data)})
         .catch((error) => console.log(error))
 
-        // fetch(apiBaseUrl + "/api/games/")
-        // .then((response) => {return response.json()})
-        // .then(data => {
-        //     setGamesData(data);
-        //     setLoading(false);
-        // })
-        // .catch((error) => console.log(error))
 
+        
         
 
         window.scrollTo(0, 0);
@@ -59,7 +56,13 @@ function Hero () {
 
 
     if (loading) {
-        return <Loading/>
+        return (
+            <section className="Hero">
+                <div className="wrapper">
+                    <Loading/>
+                </div>
+            </section>    
+        )
     }
 
     return (
@@ -72,33 +75,39 @@ function Hero () {
                         </iframe>
                     ))} */}
                     <iframe title="Hero-Trailer"
-                        src={"https://www.youtube.com/embed/" + heroTrailer}>
+                        src={"https://www.youtube.com/embed/" + heroTrailer.trailer}>
                     </iframe>
                 </div>
                 <div className="HeroRight">
                     {kickstarterGame.slice(0,1).map(game => (
-                        <div id={heroTrailer === game.trailer ? "active" : null }>
-                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                alt={game.name} 
-                                onClick={() => {setHeroTrailer(game.trailer)}} />
-                            <span>Live on Kickstarter</span>
-                        </div>
+                        <Link to={"/" + game.slug}>
+                            <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                                <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                    alt={game.name} 
+                                    onMouseOver={() => {setHeroTrailer(game)}} />
+                                <span className="HeroGameSection">Live on Kickstarter</span>
+                            </div>
+                        </Link>
                     ))}
                     {recentReleaseGame.slice(0,1).map(game => (
-                        <div id={heroTrailer === game.trailer ? "active" : null }>
-                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                alt={game.name} 
-                                onClick={() => {setHeroTrailer(game.trailer)}} />
-                            <span>Latest Release</span>
-                        </div>
+                        <Link to={"/" + game.slug}>
+                            <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                                <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                    alt={game.name} 
+                                    onMouseOver={() => {setHeroTrailer(game)}} />
+                                <span className="HeroGameSection">Latest Release</span>
+                            </div>
+                        </Link>
                     ))}
                     {comingSoonGame.slice(0,1).map(game => (
-                        <div id={heroTrailer === game.trailer ? "active" : null }>
-                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                alt={game.name} 
-                                onClick={() => {setHeroTrailer(game.trailer)}} />
-                            <span>Coming up next</span>
-                        </div>
+                        <Link to={"/" + game.slug}>
+                            <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                                <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                    alt={game.name} 
+                                    onMouseOver={() => {setHeroTrailer(game)}} />
+                                <span className="HeroGameSection">Coming up next</span>
+                            </div>
+                        </Link>
                     ))}
                     {/* <div>
                         {earlyAccessGame.slice(0,1).map(game => (
