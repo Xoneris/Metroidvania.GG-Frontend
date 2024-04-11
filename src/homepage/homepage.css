@@ -264,9 +264,6 @@ nav a:hover {
     color: #dd8500;
 }
 
-.HeroRight #active .HeroMoreInfoBtn {
-    display: inline;
-}
 
 .HeroRight img {
     width: 100%;
@@ -838,6 +835,19 @@ footer .social-icon:hover {
 
     .responsive-nav-menu .active {
         color: #dd8500;
+    }
+
+    .Hero .wrapper {
+        flex-direction: column;
+    }
+
+    .Hero .HeroRight,
+    .Hero .HeroLeft {
+        width: 100%;
+    }
+
+    .Hero .HeroRight {
+        flex-direction: row;
     }
 
     .GameView {

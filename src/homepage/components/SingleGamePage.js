@@ -75,8 +75,8 @@ function SingleGamePage (props) {
                     <h3>Platforms:</h3>
                 <ul className="GamePlatforms">
                     { gamesData.steam && (<li><a href={gamesData.steam} target="_blank"><img src='/assets/icons/steam.png' alt="Steam Logo" /></a></li>) }
-                    { gamesData.gog && (<li><a href={gamesData.gog} target="_blank"><img src="/assets/icons/epic.png" alt="GoG Logo" /></a></li>) }
-                    { gamesData.epic && (<li><a href={gamesData.epic} target="_blank"><img src="/assets/icons/gog.png" alt="Epic Games Logo" /></a></li>) }
+                    { gamesData.epic && (<li><a href={gamesData.epic} target="_blank"><img src="/assets/icons/epic.png" alt="GoG Logo" /></a></li>) }
+                    { gamesData.gog && (<li><a href={gamesData.gog} target="_blank"><img src="/assets/icons/gog.png" alt="Epic Games Logo" /></a></li>) }
                     { gamesData.playstation && (<li><a href={gamesData.playstation} target="_blank"><img src="/assets/icons/playstation.png" alt="Playstation Logo" /></a></li>) }
                     { gamesData.xbox && (<li><a href={gamesData.xbox} target="_blank"><img src="/assets/icons/xbox.png" alt="Xbox Logo" /></a></li>) }
                     { gamesData.nintendo && (<li><a href={gamesData.nintendo} target="_blank"><img src="/assets/icons/nintendo-switch.png" alt="Nintendo Switch Logo" /></a></li>) }
