@@ -77,37 +77,37 @@ function Hero () {
                     <iframe title="Hero-Trailer"
                         src={"https://www.youtube.com/embed/" + heroTrailer.trailer}>
                     </iframe>
+                    <Link to={"/" + heroTrailer.slug} key={heroTrailer.id}>
+                        <span><b>More info!</b></span>
+                    </Link>
                 </div>
                 <div className="HeroRight">
                     {kickstarterGame.slice(0,1).map(game => (
-                        <Link to={"/" + game.slug}>
-                            <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
-                                <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                    alt={game.name} 
-                                    onMouseOver={() => {setHeroTrailer(game)}} />
-                                <span className="HeroGameSection">Live on Kickstarter</span>
-                            </div>
-                        </Link>
+                        <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                            <span className="HeroGameSection">Live on Kickstarter</span>
+                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                alt={game.name} 
+                                onClick={() => {setHeroTrailer(game)}} 
+                            />
+                        </div>
                     ))}
                     {recentReleaseGame.slice(0,1).map(game => (
-                        <Link to={"/" + game.slug}>
-                            <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
-                                <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                    alt={game.name} 
-                                    onMouseOver={() => {setHeroTrailer(game)}} />
-                                <span className="HeroGameSection">Latest Release</span>
-                            </div>
-                        </Link>
+                        <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                            <span className="HeroGameSection">Latest Release</span>
+                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                alt={game.name} 
+                                onClick={() => {setHeroTrailer(game)}} 
+                            />
+                        </div>
                     ))}
                     {comingSoonGame.slice(0,1).map(game => (
-                        <Link to={"/" + game.slug}>
-                            <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
-                                <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                    alt={game.name} 
-                                    onMouseOver={() => {setHeroTrailer(game)}} />
-                                <span className="HeroGameSection">Coming up next</span>
-                            </div>
-                        </Link>
+                        <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                            <span className="HeroGameSection">Coming up next</span>
+                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                alt={game.name} 
+                                onClick={() => {setHeroTrailer(game)}} 
+                            />
+                        </div>
                     ))}
                     {/* <div>
                         {earlyAccessGame.slice(0,1).map(game => (

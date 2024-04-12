@@ -14,8 +14,9 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: 1rem;
     margin: 0 auto;
-    min-height: 100%;
+    min-height: 500px;
 }
 
 h2 {
@@ -207,9 +208,9 @@ nav a:hover {
 /* ------------ */
 
 .Hero {
-    padding: 20px 0;
+    padding: 20px 10px;
     background-color: #111111;
-    width: 100%;
+    width: calc(100% - 20px);
     
     color: #999999;
 }
@@ -220,22 +221,57 @@ nav a:hover {
     height: 100%;
     flex-wrap: nowrap;
     margin: auto;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0 0 5px 1px #dd8500;
+}
+
+.HeroLeft, .HeroRight {
+    margin-bottom: -5px;
 }
 
 .HeroLeft {
     width: 72%;
     height: 100%;
     padding-right: 1px;
+    position: relative;
 }
 
 .HeroLeft iframe {
     width: 100%;
     border: 1px solid transparent;
     height: auto;
-
     aspect-ratio: 16 / 9;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+}
+
+.HeroLeft span {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    padding: 5px;
+    background-color: #000000BB;
+    color: #dd8500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    font-size: 1.2rem;
+    
+    animation-name: hero-pop-in;
+    animation-duration: 1s;
+}
+
+.HeroLeft span:hover {
+    border: 1px solid #dd8500;
+}
+
+@keyframes hero-pop-in {
+    from {
+        transform: scale(1.2);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 .HeroRight {
@@ -249,7 +285,6 @@ nav a:hover {
 
 .HeroRight div {
     width: 100%;
-    
     position: relative;
     overflow: hidden;
 }
@@ -272,14 +307,14 @@ nav a:hover {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
 
-    padding-right: 50px;
+    padding: 0 50px 0 0;
     margin: 0 0 0 -50px;
     opacity: 0.3;
     color: #999999;
 
     transition: 
         margin,
-        padding-right,
+        padding,
         opacity;
     transition-duration: 0.5s;
 
@@ -287,7 +322,7 @@ nav a:hover {
 
 .HeroRight img:hover {
     opacity: 1;
-    padding-right: 0;
+    padding: 0;
     margin: 0;
 }
 
@@ -296,11 +331,11 @@ nav a:hover {
     position: absolute;
     font-size: 1.2rem;
     color: #999999;
-    
+    z-index: 1;
     top: 0px;
     left: 0px;
     padding: 6px;
-
+    
     background-color: #000000BB;
     border-bottom-right-radius: 15px;
 }
@@ -850,6 +885,26 @@ footer .social-icon:hover {
         flex-direction: row;
     }
 
+    .HeroLeft {
+        margin-bottom: -6px;
+    }
+
+    .HeroLeft iframe {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .HeroRight img {
+        padding: 0 0 30px 0;
+        margin: -30px 0 0 0;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
     .GameView {
         display: block;
     }
@@ -865,6 +920,30 @@ footer .social-icon:hover {
 }
 
 @media (max-width: 600px) {
+    
+    .HeroRight div {
+        position: relative;
+    }
+    
+    .HeroRight img {
+        padding: 0 0 10px 0;
+        margin: -10px 0 0 0;
+    }
+
+    .HeroRight div .HeroGameSection {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        height: 52px;
+        background-color: transparent;
+        border-top: 1px solid #dd8500;
+        border-bottom: 1px solid #dd8500;
+        border-radius: 0;
+        background-color: #111111;
+        
+        z-index: 1;
+    }
+
     .footerContent {
         width: 100%;
     }
