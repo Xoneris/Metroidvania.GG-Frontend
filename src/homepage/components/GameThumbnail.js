@@ -7,8 +7,8 @@ function GameThumbnail (props) {
         <Link to={"/" + props.game.slug} key={props.game.id}>
             <div className="Game">
                 <img src={'/assets/thumbnails/' + props.game.slug + '.jpg'} alt={props.game.name} />
-                <span>{props.game.release_date ? replaceMonthWithName(props.game.release_date) : props.game.release_window}</span>
-
+                <span className="ReleaseLabel">{props.game.release_date ? replaceMonthWithName(props.game.release_date) : props.game.release_window}</span>
+                {props.game.earlyaccess === true ? <span className="EarlyAccessLabel">Early Access</span> : null}
             </div>
         </Link>
     )

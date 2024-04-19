@@ -58,8 +58,15 @@ function Released() {
         },
     ];
 
+    const currentYear = String(new Date().getFullYear());
+    let currentMonth = new Date().getMonth() + 1;
+
+    if (currentMonth > 0 || currentMonth < 10 ) {
+        currentMonth = "0" + String(currentMonth);
+    }
+
     const [gamesData, setGamesData] = useState([]);
-    const [yearSelect, setYearSelect] = useState('2024');
+    const [yearSelect, setYearSelect] = useState(currentYear);
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -89,13 +96,22 @@ function Released() {
                 <button onClick={() => setYearSelect('2023')}>2023</button>
                 <button onClick={() => setYearSelect('2022')}>2022</button>
             </div>
-
-            {months.map(month => (
+            {/* .filter((month) => currentYear === yearSelect && currentMonth >= month.month_number) */}
+            {months.reverse().map(month => (
                 <>
                     <h3>{month.month_name}</h3>
                     <hr/>
+                    {/* {currentYear === yearSelect && currentMonth >= month.month_number ?
+                    <>
+                        <h3>{month.month_name}</h3>
+                        <hr/>
+                    </> : 
+                    null} */}
                     <div className="wrapper">
+                        {/* {gamesData.map(game => (
+                            <GameThumbnail game={game} key={game.id}/> ))} */}
                         {gamesData.filter((game) => 
+                            game.release_date !== null &&
                             game.release_date[5] + game.release_date[6] === month.month_number &&
                             game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === yearSelect
                             ).map(game => (

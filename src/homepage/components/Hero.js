@@ -69,11 +69,6 @@ function Hero () {
         <section className="Hero">
             <div className="wrapper">
                 <div className="HeroLeft">
-                    {/* {heroTrailer.slice(0,1).map(game => (
-                        <iframe title={game.name}
-                        src={"https://www.youtube.com/embed/"+game.trailer}>
-                        </iframe>
-                    ))} */}
                     <iframe title="Hero-Trailer"
                         src={"https://www.youtube.com/embed/" + heroTrailer.trailer}>
                     </iframe>
@@ -109,31 +104,6 @@ function Hero () {
                             />
                         </div>
                     ))}
-                    {/* <div>
-                        {earlyAccessGame.slice(0,1).map(game => (
-                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                id={heroTrailer === game.trailer ? "active" : null }
-                                alt={game.name} 
-                                onClick={() => {setHeroTrailer(game.trailer)}} />
-                        ))}
-                        <p>Currently in Early Access</p>
-                    </div> */}
-                    
-                    {/* {gamesData.slice(0,4).map(game => (
-                        <div>
-                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} alt={game.name} onClick={() => {setRandomHook(game.id)}} />
-                            <p>Text</p>
-                        </div>
-                    ))} */}
-
-                    {/* <span>Live on Kickstarter</span>
-                    <img src={'/assets/thumbnails/' + gamesData[0].slug + '.jpg'} alt={gamesData[0].name} onClick={changeHeroVideo} />
-                    <span>Latest Release</span>
-                    <img src={'/assets/thumbnails/' + gamesData[1].slug + '.jpg'} alt={gamesData[1].name} onClick={changeHeroVideo} />
-                    <span>Coming out soon</span>
-                    <img src={'/assets/thumbnails/' + gamesData[2].slug + '.jpg'} alt={gamesData[2].name} onClick={changeHeroVideo} />
-                    <span>Early Access</span>
-                    <img src={'/assets/thumbnails/' + gamesData[3].slug + '.jpg'} alt={gamesData[3].name} onClick={changeHeroVideo} /> */}
                 </div>
             </div>
         </section>

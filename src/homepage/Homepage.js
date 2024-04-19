@@ -23,8 +23,8 @@ export const apiUrlContext = createContext();
 function Homepage () {
 
     return (
-        // <apiUrlContext.Provider value="http://xoneris.pythonanywhere.com">
-        <apiUrlContext.Provider value="http://192.168.1.11:8000">
+        <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
+        {/* <apiUrlContext.Provider value="http://192.168.1.11:8000"> */}
             <Header />
             <main>
                 
