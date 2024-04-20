@@ -40,10 +40,12 @@ function Homepage () {
                         <Route path="/Demo" element={<SinglePage pageIdentifier="Demo"/>}></Route>
                         <Route path="/AllGames" element={<AllGames />}></Route>
                         <Route path="/Contact" element={<Contact />}></Route>
-                        {/* <Route path="/*" element={<NotFound/>}></Route> */}
+                        
                         <Route path="/:gameSlug" element={<SingleGamePage/>}></Route>
                         <Route path="/Loading" element={<Loading/>}></Route>
                         <Route path="/Search" element={<Search/>}></Route>
+
+                        <Route path="*" element={<NotFound/>}></Route>
                     </Routes>
 
             </main>

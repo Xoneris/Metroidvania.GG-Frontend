@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect, useContext, Suspense } from 'react';
+import { useState, useEffect, useContext} from 'react';
 import { SocialIcon } from 'react-social-icons'
 import { replaceMonthWithName } from "./functions";
 import { apiUrlContext } from "../Homepage";
 
 import Loading from "./Loading";
+import NotFound from "./NotFound";
 
 function SingleGamePage (props) {
 
@@ -14,23 +15,38 @@ function SingleGamePage (props) {
     const fetchUrl = apiBaseUrl + "/api/games/" + gameSlug;
 
     const [loading, setLoading] = useState(false)
+    const [fetchFail, setFetchFail] = useState();
 
     useEffect(() => {
     
         setLoading(true)
         fetch(fetchUrl)
-            .then((response) => {return response.json()})
+            .then((response) => {
+                if(!response.ok) {
+                    throw new Error(response.status)
+                } else {
+                    return response.json()
+                }
+            })
             .then(data => {
                 setGamesData(data)
                 setLoading(false)
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log("error: " + error)
+                setLoading(false)
+                setFetchFail(true)
+            })
 
         window.scrollTo(0, 0)
     }, [fetchUrl]);
 
     if (loading) {
         return <Loading/>
+    }
+
+    if (fetchFail) {
+        return <NotFound/>
     }
 
     return (

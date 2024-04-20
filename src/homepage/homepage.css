@@ -202,6 +202,32 @@ nav a:hover {
   100% { transform: rotate(360deg); }
 }
 
+/* --------------- */
+/*   404 SECTION   */
+/* --------------- */
+
+.NotFound {
+    width: calc(100% - 20px);
+    max-width: 1920px;
+    display:block;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.NotFound h2 {
+    margin-top: 20px;
+}
+
+.NotFound .Four {
+    color: #dd8500;
+    font-size: 5rem;
+}
+
+.NotFound .Zero {
+    color: #111111;
+    font-size: 5rem;
+}
 
 /* ------------ */
 /* HERO SECTION */
