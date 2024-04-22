@@ -2,6 +2,11 @@
 /* GENERAL SECTION */
 /* --------------- */
 
+::selection {
+    color: #111111;
+    background-color: #dd8500;
+}
+
 #root {
     min-height: 100vh;
     display: flex;
