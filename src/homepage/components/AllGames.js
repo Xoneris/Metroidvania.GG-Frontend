@@ -52,7 +52,6 @@ function AllGames () {
                 ))}
             </div> 
 
-
             {alphabet.map(letter => 
                 <>
                     <h3><a id={letter}>{letter}</a></h3>
@@ -64,7 +63,6 @@ function AllGames () {
                     </div>
                 </>    
             )}
-
         </section>
     )
 }
