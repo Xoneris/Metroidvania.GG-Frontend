@@ -25,7 +25,18 @@ function Navigation() {
                 <NavLink to="/Demo"><li>Demos</li></NavLink>
                 <NavLink to="/Released"><li>Released</li></NavLink>
                 <NavLink to="/AllGames"><li>All Games</li></NavLink>
-                <NavLink to="/Contact"><li>Contact</li></NavLink>
+                <NavLink to="/Search"><li>Search</li></NavLink>
+
+                {/* <div>
+                    <input type="text" />
+                    <img src="/assets/icons/search-icon.svg" className="SearchIcon" alt="search-icon" />
+                </div>
+                
+
+                
+                <div className="SearchBox">
+                    <input type="text" />
+                </div> */}
                 
             </ul>
 

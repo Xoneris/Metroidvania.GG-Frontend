@@ -7,7 +7,7 @@ function Search () {
   const [gamesData, setGamesData] = useState([]);
 
   const apiBaseUrl = useContext(apiUrlContext);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState("");
   const [searchedGames, setSearchedGames] = useState([])
 
   useEffect(() => {
@@ -27,12 +27,19 @@ function Search () {
     return (
         <section className="Search">
             <h2>Search</h2>
+            
+            <div className="searchBox">
+              <input type="text" onChange={inputHandler} />
+            </div>
             <hr/>
-            <input type="text" onChange={inputHandler} /> - {search}
             <div className="wrapper">
-                {gamesData.filter(game => game.name.toLowerCase().includes(search)).map(game => (
-                    <GameThumbnail game={game} key={game.id}/>
-                ))}
+                {
+                  search.length > 1 ? 
+                  gamesData.filter(game => game.name.toLowerCase().includes(search)).map(game => (
+                      <GameThumbnail game={game} key={game.id}/>
+                  )):
+                  null
+                }
             </div>
         </section>
     )

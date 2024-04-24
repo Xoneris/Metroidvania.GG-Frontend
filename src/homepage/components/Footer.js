@@ -25,7 +25,7 @@ function Footer () {
                     <h2>Stay in touch</h2>
                     <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="https://twitter.com/metroidvania_gg" />
                     <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="https://www.youtube.com/@metroidvaniagg" />
-                    <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="mailto:hello@metroidvania.gg" />
+                    <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="mailto:hello&commat;metroidvania&period;gg" />
                     <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="https://discord.gg" />
                 </div>
             </div>
