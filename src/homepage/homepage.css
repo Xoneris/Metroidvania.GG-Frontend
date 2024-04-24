@@ -737,6 +737,16 @@ input, button, select {
     margin-top: 11px;
 }
 
+.GameView a,
+.GameView a:visited {
+    color: #dd8500;
+    text-decoration: none;
+}
+
+.GameView-left a:hover {
+    text-decoration: underline;
+}
+
 .GameView-left, .GameView-right {
     padding: 5px;
     margin: 1px;
