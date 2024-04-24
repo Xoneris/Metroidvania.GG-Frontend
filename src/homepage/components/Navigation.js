@@ -66,7 +66,7 @@ function Navigation() {
                 <NavLink to="/Demo" onClick={() => setNavOpen(!navOpen)}><li>Demos</li></NavLink><hr/>
                 <NavLink to="/Released" onClick={() => setNavOpen(!navOpen)}><li>Released</li></NavLink><hr/>
                 <NavLink to="/AllGames" onClick={() => setNavOpen(!navOpen)}><li>All Games</li></NavLink><hr/>
-                <NavLink to="/Contact" onClick={() => setNavOpen(!navOpen)}><li>Contact</li></NavLink><hr/>
+                <NavLink to="/Search" onClick={() => setNavOpen(!navOpen)}><li>Search</li></NavLink><hr/>
             </ul>
             </div>
         </nav>
