@@ -41,6 +41,36 @@ hr {
     width: 100%;
 }
 
+.Announcments {
+    width: calc(100% - 22px);
+    height: 100%;
+    display: block;
+    position: relative;
+    background-color: #dd8500;
+    border: 1px solid #111111;
+    padding: 0 20px 0 0;
+}
+
+.Announcments a {
+    color: #111111;
+}
+
+.Announcments h5 {
+    margin: 2px;
+    text-align: center;
+}
+
+#Announcment-closed {
+    display: none;
+}
+
+.Announcment-close-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
+
 /* --------------------------- */
 /* HEADER & NAVIGATION SECTION */
 /* --------------------------- */
@@ -583,6 +613,7 @@ nav .SearchBox {
 }
 
 .AllGames a {
+    color: #0b0b0b;
     text-decoration: none;
 }
 
@@ -798,6 +829,9 @@ footer {
 
 footer h2 {
     color: #dd8500;
+    margin: 0 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #dd8500;
 }
 
 footer .wrapper {
@@ -822,8 +856,18 @@ footer .wrapper {
     list-style: none;
 }
 
+.footerContent a {
+    color: #dd8500;
+    text-decoration: none;
+}
+
+.footerContent a:hover {
+    text-decoration: underline;
+}
+
 footer .social-icon {
     margin: 5px;
+    
 }
 
 footer .social-icon:hover {
