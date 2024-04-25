@@ -90,13 +90,18 @@ header .wrapper {
 }
 
 .logo {
-    display: flex;
     height: 50px;
+    display: flex;
     color: #dd8500;
 }
 
 .logo img {
     padding: 5px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    
+    /* width: 90%;
+    height: 90%; */
 }
 
 .logo h1 {
@@ -106,6 +111,7 @@ header .wrapper {
 header a {
     text-decoration: none;
     color: #999999;
+    border: 1px solid green;
 }
 
 header ul {

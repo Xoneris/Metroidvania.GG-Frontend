@@ -6,12 +6,12 @@ function Header () {
     return (
         <header>
             <div className="wrapper">
-                <Link to="/">
+                {/* <Link to="/"> */}
                     <div className='logo'>
                         <img src="/assets/Logo.png" alt="Logo" />
                         <h1>Metroidvania.GG</h1>
                     </div>
-                </Link>
+                {/* </Link> */}
                 <Navigation />
             </div>
         </header>
