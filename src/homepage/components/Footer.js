@@ -30,7 +30,7 @@ function Footer () {
                 <div className="footerContent">
                     <h2>Stay in touch</h2>
                     <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="https://twitter.com/metroidvania_gg" />
-                    <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="https://www.youtube.com/@metroidvania.gg" />
+                    <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="https://www.youtube.com/@metroidvaniagg" />
                     <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url={"mailto:" + email} />
                     <SocialIcon bgColor='#dd8500' fgColor='#111111' target='_blank' url="https://discord.gg/f64tqHPZCh" />
                 </div>
