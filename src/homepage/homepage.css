@@ -93,15 +93,13 @@ header .wrapper {
     height: 50px;
     display: flex;
     color: #dd8500;
+
 }
 
 .logo img {
     padding: 5px;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    
-    /* width: 90%;
-    height: 90%; */
+    width: 50px;
+    object-fit: contain;
 }
 
 .logo h1 {
@@ -899,17 +897,13 @@ footer .social-icon:hover {
 /* RESPONSIVE SECTION */
 /* ------------------ */
 
-@media (max-width: 1260px) {
+@media (max-width: 1270px) {
     .logo h1 {
             display: none;
     }
 }
 
-@media (max-width: 1220px) {
-
-}
-
-@media (max-width: 1000px) {
+@media (max-width: 1015px) {
     header {
         position: fixed;
         z-index: 2;
