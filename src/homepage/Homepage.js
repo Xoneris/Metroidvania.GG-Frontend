@@ -27,7 +27,7 @@ function Homepage () {
 
     return (
         <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
-        {/* <apiUrlContext.Provider value="http://192.168.1.11:8000"> */}
+        {/* <apiUrlContext.Provider value="http://192.168.1.2:8000"> */}
             <Header />
             <main>
                 <section className="Announcments" id={announcmentClose ? "Announcment-closed" : null}>
