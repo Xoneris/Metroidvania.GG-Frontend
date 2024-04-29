@@ -8,10 +8,10 @@ function Hero () {
     
     const [loading, setLoading] = useState(false);
 
-    const [kickstarterGame, setKickstarterGame] = useState([]);
+    const [liveKickstarterGame, setLiveKickstarterGame] = useState([]);
     const [recentReleaseGame, setRecentReleaseGame] = useState([]);
     const [comingSoonGame, setComingSoonGame] =  useState([]);
-    const [earlyAccessGame, setEarlyAccessGame] = useState([]);
+    const [upcomingKickstarterGame, setUpcomingKickstarterGame] = useState([]);
 
     const [heroTrailer, setHeroTrailer] = useState([]);
 
@@ -21,28 +21,28 @@ function Hero () {
     useEffect(() => {
         setLoading(true);
 
-        fetch(apiBaseUrl + "/api/games/kickstarter/live/")
-        .then((response) => {return response.json()})
-        .then(data => {
-            setKickstarterGame(data)
-            setHeroTrailer(data[0])
-        })
-        .catch((error) => console.log(error))
-
         fetch(apiBaseUrl + "/api/games/recentlyreleased/")
-        .then((response) => {return response.json()})
-        .then(data => {setRecentReleaseGame(data)})
-        .catch((error) => console.log(error))
+            .then((response) => {return response.json()})
+            .then(data => {
+                setRecentReleaseGame(data)
+                setHeroTrailer(data[0])
+            })
+            .catch((error) => console.log(error))
 
         fetch(apiBaseUrl + "/api/games/comingsoon/")
-        .then((response) => {return response.json()})
-        .then(data => {setComingSoonGame(data)})
-        .catch((error) => console.log(error))
+            .then((response) => {return response.json()})
+            .then(data => {setComingSoonGame(data)})
+            .catch((error) => console.log(error))
 
-        fetch(apiBaseUrl + "/api/games/earlyaccess/")
-        .then((response) => {return response.json()})
-        .then(data => {setEarlyAccessGame(data)})
-        .catch((error) => console.log(error))
+        fetch(apiBaseUrl + "/api/games/kickstarter/live/")
+            .then((response) => {return response.json()})
+            .then(data => {setLiveKickstarterGame(data)})
+            .catch((error) => console.log(error))
+        
+        fetch(apiBaseUrl + "/api/games/kickstarter/upcoming/")
+            .then((response) => {return response.json()})
+            .then(data => {setUpcomingKickstarterGame(data)})
+            .catch((error) => console.log(error))
         
         window.scrollTo(0, 0);
         setLoading(false);
@@ -73,16 +73,6 @@ function Hero () {
                     </Link>
                 </div>
                 <div className="HeroRight">
-                    {kickstarterGame.slice(0,1).map(game => (
-                        <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
-                            <span className="HeroGameSection">Live on Kickstarter</span>
-                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                alt={game.name}
-                                title={game.name} 
-                                onClick={() => {setHeroTrailer(game)}} 
-                            />
-                        </div>
-                    ))}
                     {recentReleaseGame.slice(0,1).map(game => (
                         <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
                             <span className="HeroGameSection">Latest Release</span>
@@ -103,6 +93,29 @@ function Hero () {
                             />
                         </div>
                     ))}
+                    {liveKickstarterGame.length > 0 ? 
+                    liveKickstarterGame.slice(0,1).map(game => (
+                        <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                            <span className="HeroGameSection">Live on Kickstarter</span>
+                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                alt={game.name}
+                                title={game.name} 
+                                onClick={() => {setHeroTrailer(game)}} 
+                            />
+                        </div>
+                    )):
+                    null}
+                    {liveKickstarterGame.length === 0 ?
+                    upcomingKickstarterGame.slice(0,1).map(game => (
+                        <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
+                            <span className="HeroGameSection">Soon on Kickstarter</span>
+                            <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
+                                alt={game.name} 
+                                title={game.name} 
+                                onClick={() => {setHeroTrailer(game)}} 
+                            />
+                        </div>
+                    )) : null}
                 </div>
             </div>
         </section>
