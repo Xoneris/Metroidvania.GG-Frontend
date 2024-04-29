@@ -53,7 +53,7 @@ function SingleGamePage (props) {
         <div className="GameView">
             <div className="GameView-left">
             <h2>{gamesData.name}</h2>
-                <img src={'/assets/thumbnails/' + gamesData.slug + '.jpg'} alt={gamesData.name} />
+                <img src={'/assets/thumbnails/' + gamesData.slug + '.jpg'} alt={gamesData.name} title={gamesData.name}  />
                 <h3>Details:</h3>
                 <ul>
                     <li><b>Developer:</b> {gamesData.developer} </li>

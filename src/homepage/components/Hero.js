@@ -43,11 +43,7 @@ function Hero () {
         .then((response) => {return response.json()})
         .then(data => {setEarlyAccessGame(data)})
         .catch((error) => console.log(error))
-
-
         
-        
-
         window.scrollTo(0, 0);
         setLoading(false);
 
@@ -81,7 +77,8 @@ function Hero () {
                         <div id={heroTrailer.trailer === game.trailer ? "active" : null } key={game.id}>
                             <span className="HeroGameSection">Live on Kickstarter</span>
                             <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
-                                alt={game.name} 
+                                alt={game.name}
+                                title={game.name} 
                                 onClick={() => {setHeroTrailer(game)}} 
                             />
                         </div>
@@ -91,6 +88,7 @@ function Hero () {
                             <span className="HeroGameSection">Latest Release</span>
                             <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
                                 alt={game.name} 
+                                title={game.name} 
                                 onClick={() => {setHeroTrailer(game)}} 
                             />
                         </div>
@@ -100,6 +98,7 @@ function Hero () {
                             <span className="HeroGameSection">Coming up next</span>
                             <img src={'/assets/thumbnails/' + game.slug + '.jpg'} 
                                 alt={game.name} 
+                                title={game.name} 
                                 onClick={() => {setHeroTrailer(game)}} 
                             />
                         </div>
