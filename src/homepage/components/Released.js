@@ -92,9 +92,24 @@ function Released() {
             <h2>Released Games of {yearSelect}</h2>
 
             <div className="wrapper">
-                <button onClick={() => setYearSelect('2024')}>2024</button>
+                {/* <button onClick={() => setYearSelect('2024')}>2024</button>
                 <button onClick={() => setYearSelect('2023')}>2023</button>
                 <button onClick={() => setYearSelect('2022')}>2022</button>
+                <button onClick={() => setYearSelect('2021')}>2021</button>
+                <button onClick={() => setYearSelect('2020')}>2020</button>
+                <button onClick={() => setYearSelect('2019')}>2019</button>
+                <button onClick={() => setYearSelect('2018')}>2018</button> */}
+
+                <select onChange={(e) => setYearSelect(e.target.value)}>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                </select>
+
             </div>
             {/* .filter((month) => currentYear === yearSelect && currentMonth >= month.month_number) */}
             {months.reverse().map(month => (
@@ -108,8 +123,6 @@ function Released() {
                     </> : 
                     null} */}
                     <div className="wrapper">
-                        {/* {gamesData.map(game => (
-                            <GameThumbnail game={game} key={game.id}/> ))} */}
                         {gamesData.filter((game) => 
                             game.release_date !== null &&
                             game.release_date[5] + game.release_date[6] === month.month_number &&
