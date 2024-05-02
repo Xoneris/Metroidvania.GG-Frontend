@@ -36,7 +36,7 @@ function AllGames () {
 
     return (
         <section className="AllGames">
-            <h2>All Games</h2>
+            <h2 id="all-games">All Games</h2>
             <ul>
                 <li><a href="#0-9">0-9</a></li>
                 {alphabet.map(letter => 
@@ -63,6 +63,11 @@ function AllGames () {
                     </div>
                 </>    
             )}
+            <a href="#all-games">
+                <div className="backToTopIcon" title="Back to Top">
+                    <span></span>
+                </div>
+            </a>
         </section>
     )
 }
