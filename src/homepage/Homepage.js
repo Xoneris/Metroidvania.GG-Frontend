@@ -20,10 +20,12 @@ import Loading from './components/Loading';
 // const SingleGamePage = lazy(() => import('./components/SingleGamePage.js'));
 
 export const apiUrlContext = createContext();
+export const allGamesNoThumbnail = createContext()
 
 function Homepage () {
 
     const [announcmentClose, setAnnouncmentClose] = useState(false);
+    const [noThumbnail, setNoThumbnail] = useState(true);
 
     return (
         <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
@@ -47,14 +49,19 @@ function Homepage () {
                     <Route path="/Kickstarter" element={<SinglePage pageIdentifier="Kickstarter"/>}></Route>
                     <Route path="/Released" element={<Released/>}></Route>
                     <Route path="/Demo" element={<SinglePage pageIdentifier="Demo"/>}></Route>
-                    <Route path="/AllGames" element={<AllGames />}></Route>
-                    <Route path="/Contact" element={<Contact />}></Route>
+                    <Route path="/AllGames" element={
+                        <allGamesNoThumbnail.Provider value={{noThumbnail, setNoThumbnail}}>
+                            <AllGames />
+                        </allGamesNoThumbnail.Provider>
+                    }></Route>
+                    
                     
                     <Route path="/:gameSlug" element={<SingleGamePage/>}></Route>
                     <Route path="/Loading" element={<Loading/>}></Route>
                     <Route path="/Search" element={<Search/>}></Route>
-
-                    <Route path="*" element={<NotFound/>}></Route>
+                    
+                    {/* <Route path="/Contact" element={<Contact />}></Route>
+                    <Route path="*" element={<NotFound/>}></Route> */}
                 </Routes>
 
             </main>

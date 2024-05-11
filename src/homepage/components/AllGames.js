@@ -1,14 +1,16 @@
 import { useState, useEffect, useContext } from "react";
 import GameThumbnail from "./GameThumbnail";
-import { apiUrlContext } from "../Homepage";
+import { allGamesNoThumbnail, apiUrlContext } from "../Homepage";
 import Loading from "./Loading";
 
 function AllGames () {
 
     const [gamesData, setGamesData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [noThumbnail, setNoThumbnail] = useState(true);
+    // const [noThumbnail, setNoThumbnail] = useState(true);
+
     const apiBaseUrl = useContext(apiUrlContext);
+    const noThumbnailContext = useContext(allGamesNoThumbnail)
 
     let alphabet = [];
     let chr; 
@@ -48,16 +50,17 @@ function AllGames () {
             <input 
                 type="button" 
                 className="ThumbnailButton"
-                onClick={() => {setNoThumbnail(!noThumbnail)}} 
-                value={noThumbnail ? "Show Thumbnails" : "Hide Thumbnails"}
+                // onClick={() => {setNoThumbnail(!noThumbnail)}} 
+                onClick={() => {noThumbnailContext.setNoThumbnail(!noThumbnailContext.noThumbnail)}}
+                value={noThumbnailContext.noThumbnail ? "Show Thumbnails" : "Hide Thumbnails"}
             />
 
             <h3><a id="0-9">0-9</a></h3>
             <hr />
 
-            <div className="wrapper" id={noThumbnail ? "noThumbnail" : null}>
+            <div className="wrapper" id={noThumbnailContext.noThumbnail ? "noThumbnail" : null}>
                 {gamesData.filter((game) => ['0','1','2','3','4','5','6','7','8','9'].includes(game.name[0])).map(game => (
-                    <GameThumbnail game={game} key={game.id} noThumbnail={noThumbnail}/>
+                    <GameThumbnail game={game} key={game.id} noThumbnail={noThumbnailContext.noThumbnail}/>
                 ))}
             </div> 
 
@@ -65,9 +68,9 @@ function AllGames () {
                 <>
                     <h3><a id={letter}>{letter}</a></h3>
                     <hr />
-                    <div className="wrapper" id={noThumbnail ? "noThumbnail" : null} >
+                    <div className="wrapper" id={noThumbnailContext.noThumbnail ? "noThumbnail" : null} >
                         {gamesData.filter((game) => game.name[0] === letter).map(game => (
-                            <GameThumbnail game={game} key={game.id} noThumbnail={noThumbnail}/>
+                            <GameThumbnail game={game} key={game.id} noThumbnail={noThumbnailContext.noThumbnail}/>
                         ))}
                     </div>
                 </>    
