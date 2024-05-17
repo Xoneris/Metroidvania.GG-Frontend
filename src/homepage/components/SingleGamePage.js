@@ -6,6 +6,7 @@ import { apiUrlContext } from "../Homepage";
 
 import Loading from "./Loading";
 import NotFound from "./NotFound";
+import SteamReview from "./SteamReview";
 
 function SingleGamePage (props) {
 
@@ -16,6 +17,8 @@ function SingleGamePage (props) {
 
     const [loading, setLoading] = useState(false)
     const [fetchFail, setFetchFail] = useState();
+
+    let currentDate = new Date().toJSON().slice(0, 10);
 
     useEffect(() => {
     
@@ -37,8 +40,13 @@ function SingleGamePage (props) {
                 setLoading(false)
                 setFetchFail(true)
             })
-
+        
         window.scrollTo(0, 0)
+
+        // if (gamesData.steam === true){
+        //     steamAppID = gamesData.steam.split("/")
+        // }
+
     }, [fetchUrl]);
 
     if (loading) {
@@ -69,6 +77,17 @@ function SingleGamePage (props) {
                 </ul>
                 
                 <hr/>
+
+                { gamesData.release_date && gamesData.release_date < currentDate ? 
+                <>
+                    <h3>Reviews:</h3>
+                    <ul>
+                        <li><SteamReview steamAppID={gamesData.steam ? gamesData.steam.split("/")[4] : null}/></li>
+                    </ul>
+                    <hr/>
+                </>
+                : null}
+
                 <h3>Social Media:</h3>
                 <ul className="GameSocialMedia">
                     { gamesData.twitter && (<li><SocialIcon url={gamesData.twitter} bgColor='none' fgColor='black' target="_blank"/></li>) }

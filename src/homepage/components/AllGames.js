@@ -7,8 +7,6 @@ function AllGames () {
 
     const [gamesData, setGamesData] = useState([]);
     const [loading, setLoading] = useState(false);
-    // const [noThumbnail, setNoThumbnail] = useState(true);
-
     const apiBaseUrl = useContext(apiUrlContext);
     const noThumbnailContext = useContext(allGamesNoThumbnail)
 
