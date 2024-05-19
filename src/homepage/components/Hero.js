@@ -17,21 +17,24 @@ function Hero () {
 
     const apiBaseUrl = useContext(apiUrlContext);
 
-
     useEffect(() => {
         setLoading(true);
 
         fetch(apiBaseUrl + "/api/games/recentlyreleased/")
             .then((response) => {return response.json()})
             .then(data => {
-                setRecentReleaseGame(data)
-                setHeroTrailer(data[0])
+                const randoData = randomiseData(data)
+                setRecentReleaseGame(randoData)
+                setHeroTrailer(randoData[0])
             })
             .catch((error) => console.log(error))
 
         fetch(apiBaseUrl + "/api/games/comingsoon/")
             .then((response) => {return response.json()})
-            .then(data => {setComingSoonGame(data)})
+            .then(data => {
+                const randoData = randomiseData(data)
+                setComingSoonGame(randoData)
+            })
             .catch((error) => console.log(error))
 
         fetch(apiBaseUrl + "/api/games/kickstarter/live/")
@@ -49,7 +52,22 @@ function Hero () {
 
     }, []);
 
+    const randomiseData = (data) => {
 
+        const data_copy = [...data]
+        const filteredData = data_copy.filter((game) => game.release_date === data[0].release_date)
+
+        if (filteredData.length > 1) {
+       
+            for (var i = filteredData.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = filteredData[i];
+                filteredData[i] = filteredData[j];
+                filteredData[j] = temp;
+            }
+        }
+        return filteredData
+    }
 
     if (loading) {
         return (

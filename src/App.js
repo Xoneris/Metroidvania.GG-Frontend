@@ -8,8 +8,8 @@ function App() {
 
   return (
     <>
-      {/* <Analytics/>
-      <SpeedInsights/> */}
+      <Analytics/>
+      <SpeedInsights/>
       
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Homepage />
