@@ -1,11 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import GameThumbnail from "./GameThumbnail";
-import { apiUrlContext } from "../Homepage";
+import { apiUrlContext, rememberReleaseYear } from "../Homepage";
 import Loading from "./Loading";
 
 function Released() {
 
     const apiBaseUrl = useContext(apiUrlContext);
+    const rememberReleaseYearContext = useContext(rememberReleaseYear)
 
     const months = [
         {
@@ -58,15 +59,12 @@ function Released() {
         },
     ];
 
-    const currentYear = String(new Date().getFullYear());
     let currentMonth = new Date().getMonth() + 1;
-
     if (currentMonth > 0 || currentMonth < 10 ) {
         currentMonth = "0" + String(currentMonth);
     }
 
     const [gamesData, setGamesData] = useState([]);
-    const [yearSelect, setYearSelect] = useState(currentYear);
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -89,7 +87,8 @@ function Released() {
 
     return (
         <section className="Released">
-            <h2>Released Games of {yearSelect}</h2>
+            {/* <h2>Released Games of {yearSelect}</h2> */}
+            <h2>Released Games of {rememberReleaseYearContext.yearSelect}</h2>
 
             <div className="wrapper">
                 {/* <button onClick={() => setYearSelect('2024')}>2024</button>
@@ -100,7 +99,11 @@ function Released() {
                 <button onClick={() => setYearSelect('2019')}>2019</button>
                 <button onClick={() => setYearSelect('2018')}>2018</button> */}
 
-                <select onChange={(e) => setYearSelect(e.target.value)}>
+                {/* <select onChange={(e) => setYearSelect(e.target.value)}> */}
+                <select 
+                    onChange={(e) => rememberReleaseYearContext.setYearSelect(e.target.value)}
+                    value={rememberReleaseYearContext.yearSelect}    
+                >
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
@@ -126,7 +129,7 @@ function Released() {
                         {gamesData.filter((game) => 
                             game.release_date !== null &&
                             game.release_date[5] + game.release_date[6] === month.month_number &&
-                            game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === yearSelect
+                            game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === rememberReleaseYearContext.yearSelect
                             ).map(game => (
                             <GameThumbnail game={game} key={game.id}/>
                         ))}

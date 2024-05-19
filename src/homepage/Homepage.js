@@ -21,11 +21,14 @@ import Loading from './components/Loading';
 
 export const apiUrlContext = createContext();
 export const allGamesNoThumbnail = createContext()
+export const rememberReleaseYear = createContext()
 
 function Homepage () {
 
+    const currentYear = String(new Date().getFullYear());
     const [announcmentClose, setAnnouncmentClose] = useState(false);
     const [noThumbnail, setNoThumbnail] = useState(true);
+    const [yearSelect, setYearSelect] = useState(currentYear);
 
     return (
         <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
@@ -47,15 +50,17 @@ function Homepage () {
                     <Route path="/TBD" element={<SinglePage pageIdentifier="TBD"/>}></Route>
                     <Route path="/EarlyAccess" element={<SinglePage pageIdentifier="EarlyAccess"/>}></Route>
                     <Route path="/Kickstarter" element={<SinglePage pageIdentifier="Kickstarter"/>}></Route>
-                    <Route path="/Released" element={<Released/>}></Route>
+                    <Route path="/Released" element={
+                        <rememberReleaseYear.Provider value={{yearSelect, setYearSelect}}>
+                            <Released/>
+                        </rememberReleaseYear.Provider>
+                    }></Route>
                     <Route path="/Demo" element={<SinglePage pageIdentifier="Demo"/>}></Route>
                     <Route path="/AllGames" element={
                         <allGamesNoThumbnail.Provider value={{noThumbnail, setNoThumbnail}}>
                             <AllGames />
                         </allGamesNoThumbnail.Provider>
                     }></Route>
-                    
-                    
                     <Route path="/:gameSlug" element={<SingleGamePage/>}></Route>
                     <Route path="/Loading" element={<Loading/>}></Route>
                     <Route path="/Search" element={<Search/>}></Route>
