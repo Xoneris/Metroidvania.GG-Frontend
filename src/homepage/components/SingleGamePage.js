@@ -78,15 +78,15 @@ function SingleGamePage (props) {
                 
                 <hr/>
 
-                {/* { gamesData.release_date && gamesData.release_date < currentDate ? 
+                { gamesData.release_date && gamesData.release_date < currentDate ? 
                 <>
-                    <h3>Reviews:</h3>
+                    <h3>Steam reviews:</h3>
                     <ul>
                         <li><SteamReview steamAppID={gamesData.steam ? gamesData.steam.split("/")[4] : null}/></li>
                     </ul>
                     <hr/>
                 </>
-                : null} */}
+                : null}
 
                 <h3>Social Media:</h3>
                 <ul className="GameSocialMedia">
