@@ -87,19 +87,9 @@ function Released() {
 
     return (
         <section className="Released">
-            {/* <h2>Released Games of {yearSelect}</h2> */}
             <h2>Released Games of {rememberReleaseYearContext.yearSelect}</h2>
 
             <div className="wrapper">
-                {/* <button onClick={() => setYearSelect('2024')}>2024</button>
-                <button onClick={() => setYearSelect('2023')}>2023</button>
-                <button onClick={() => setYearSelect('2022')}>2022</button>
-                <button onClick={() => setYearSelect('2021')}>2021</button>
-                <button onClick={() => setYearSelect('2020')}>2020</button>
-                <button onClick={() => setYearSelect('2019')}>2019</button>
-                <button onClick={() => setYearSelect('2018')}>2018</button> */}
-
-                {/* <select onChange={(e) => setYearSelect(e.target.value)}> */}
                 <select 
                     onChange={(e) => rememberReleaseYearContext.setYearSelect(e.target.value)}
                     value={rememberReleaseYearContext.yearSelect}    
