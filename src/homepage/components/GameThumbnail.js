@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
 import { replaceMonthWithName } from './functions';
+import { useContext } from 'react';
+import { searchBoxContext } from '../Homepage';
 
 function GameThumbnail (props) {
 
+    const searchBox = useContext(searchBoxContext)
+
     return (
-        <Link to={"/" + props.game.slug} key={props.game.id}>
+        <Link to={"/" + props.game.slug} key={props.game.id} onClick={() => {searchBox.setShowSearch(false)}}>
             {
              props.noThumbnail !== true ? 
             <div className="Game" title={props.game.name}>

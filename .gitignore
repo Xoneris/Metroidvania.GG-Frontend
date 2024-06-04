@@ -1,6 +1,7 @@
 build
 node_modules
 
+public/assets/thumbnails
 public/assets/videos
 
 build.rar

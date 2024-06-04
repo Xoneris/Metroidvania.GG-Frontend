@@ -15,13 +15,11 @@ import AllGames from './components/AllGames';
 import Released from './components/Released';
 import NotFound from './components/NotFound';
 import Search from './components/Search';
+import Search_old from './components/Search_old';
 import Loading from './components/Loading';
 
-// const SingleGamePage = lazy(() => import('./components/SingleGamePage.js'));
-
 export const apiUrlContext = createContext();
-export const allGamesNoThumbnail = createContext()
-export const rememberReleaseYear = createContext()
+export const searchBoxContext = createContext()
 
 function Homepage () {
 
@@ -29,11 +27,14 @@ function Homepage () {
     const [announcmentClose, setAnnouncmentClose] = useState(false);
     const [noThumbnail, setNoThumbnail] = useState(true);
     const [yearSelect, setYearSelect] = useState(currentYear);
+    const [showSearch, setShowSearch] = useState(false)
 
     return (
         <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
         {/* <apiUrlContext.Provider value="http://192.168.1.2:8000"> */}
-            <Header />
+        <searchBoxContext.Provider value={{showSearch, setShowSearch}}>
+                
+            <Header/>
             <main>
                 <section className="Announcments" id={announcmentClose ? "Announcment-closed" : null}>
                     <h5>This website is currently in <i>"Early Access"</i>, meaning most features and functionality is here, but there are still a lot of Metroidvania games missing. </h5>
@@ -42,6 +43,12 @@ function Homepage () {
                         &#10060;
                     </div>
                 </section>
+                {
+                    showSearch ? 
+                    <Search/>
+                    // <Search showSearch={showSearch} setShowSearch={setShowSearch}/>
+                    : null
+                }
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
                     <Route path="/2024" element={<SinglePage pageIdentifier="2024"/>}></Route>
@@ -51,19 +58,15 @@ function Homepage () {
                     <Route path="/EarlyAccess" element={<SinglePage pageIdentifier="EarlyAccess"/>}></Route>
                     <Route path="/Kickstarter" element={<SinglePage pageIdentifier="Kickstarter"/>}></Route>
                     <Route path="/Released" element={
-                        <rememberReleaseYear.Provider value={{yearSelect, setYearSelect}}>
-                            <Released/>
-                        </rememberReleaseYear.Provider>
+                            <Released yearSelect={yearSelect} setYearSelect={setYearSelect}/>
                     }></Route>
                     <Route path="/Demo" element={<SinglePage pageIdentifier="Demo"/>}></Route>
                     <Route path="/AllGames" element={
-                        <allGamesNoThumbnail.Provider value={{noThumbnail, setNoThumbnail}}>
-                            <AllGames />
-                        </allGamesNoThumbnail.Provider>
+                            <AllGames noThumbnail={noThumbnail} setNoThumbnail={setNoThumbnail}/>
                     }></Route>
                     <Route path="/:gameSlug" element={<SingleGamePage/>}></Route>
                     <Route path="/Loading" element={<Loading/>}></Route>
-                    <Route path="/Search" element={<Search/>}></Route>
+                    <Route path="/Search" element={<Search_old/>}></Route>
                     
                     {/* <Route path="/Contact" element={<Contact />}></Route>
                     <Route path="*" element={<NotFound/>}></Route> */}
@@ -71,6 +74,7 @@ function Homepage () {
 
             </main>
             <Footer />
+        </searchBoxContext.Provider>
         </apiUrlContext.Provider>
     )
 }

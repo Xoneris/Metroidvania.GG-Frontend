@@ -3,10 +3,10 @@ import GameThumbnail from "./GameThumbnail";
 import { apiUrlContext, rememberReleaseYear } from "../Homepage";
 import Loading from "./Loading";
 
-function Released() {
+function Released({yearSelect, setYearSelect}) {
 
     const apiBaseUrl = useContext(apiUrlContext);
-    const rememberReleaseYearContext = useContext(rememberReleaseYear)
+    // const rememberReleaseYearContext = useContext(rememberReleaseYear)
 
     const months = [
         {
@@ -87,12 +87,15 @@ function Released() {
 
     return (
         <section className="Released">
-            <h2>Released Games of {rememberReleaseYearContext.yearSelect}</h2>
+            <h2>Released Games of {yearSelect}</h2>
+            {/* <h2>Released Games of {rememberReleaseYearContext.yearSelect}</h2> */}
 
             <div className="wrapper">
                 <select 
-                    onChange={(e) => rememberReleaseYearContext.setYearSelect(e.target.value)}
-                    value={rememberReleaseYearContext.yearSelect}    
+                    // onChange={(e) => rememberReleaseYearContext.setYearSelect(e.target.value)}
+                    // value={rememberReleaseYearContext.yearSelect}    
+                    onChange={(e) => setYearSelect(e.target.value)}
+                    value={yearSelect}    
                 >
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
@@ -119,7 +122,8 @@ function Released() {
                         {gamesData.filter((game) => 
                             game.release_date !== null &&
                             game.release_date[5] + game.release_date[6] === month.month_number &&
-                            game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === rememberReleaseYearContext.yearSelect
+                            game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === yearSelect
+                            // game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === rememberReleaseYearContext.yearSelect
                             ).map(game => (
                             <GameThumbnail game={game} key={game.id}/>
                         ))}
