@@ -3,6 +3,11 @@
 /* --------------- */
 html {
 	scroll-behavior: smooth;
+    /* cursor: url('/backend/frontend/public/assets/cursor.png'), auto; */
+}
+
+html, body {
+    font-size: 16px;
 }
 
 ::selection {
@@ -92,16 +97,15 @@ header {
 
 header .wrapper {
     max-width: 1920px;
-    margin: auto;
     justify-content: space-between;
-    
 }
 
 .logo {
     height: 50px;
     display: flex;
     color: #dd8500;
-
+    justify-content: left;
+    width: 310px;
 }
 
 .logo img {
@@ -112,6 +116,14 @@ header .wrapper {
 
 .logo h1 {
     margin: 0px;
+}
+
+.logo .title-full {
+    display: block;
+}
+
+.logo .title-short {
+    display: none;
 }
 
 header a {
@@ -151,6 +163,35 @@ nav .active {
 
 nav a:hover {
     border-bottom: 3px solid #dd8500;
+}
+
+.nav-search,
+.responsive-nav-search {
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    padding-right: 10px;
+    
+}
+
+.nav-search input,
+.responsive-nav-search input {
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background: #0b0b0b;
+    background-image: url("/public/assets/icons/search-icon.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* padding-left: 25px; */
+    width: 20px;
+}
+
+.nav-search input:hover {
+    border-radius: 10px;
+    border: 2px solid #dd8500;
 }
 
 nav .SearchIcon {
@@ -240,9 +281,14 @@ nav .SearchBox {
 
 .responsive-menu-icon {
     display: none;
+    padding-left: 10px;
 }
 
 .responsive-nav-menu {
+    display: none;
+}
+
+.responsive-nav-search {
     display: none;
 }
 
@@ -269,8 +315,9 @@ nav .SearchBox {
     background-color: #111111;
     display: block;
     color: #eeeeee;
-    position: absolute;
+    position: fixed ;
     width: calc(60% - 20px);
+    max-width: 1120px;
     left: 20%;
     overflow-y: hidden;
     z-index: 11;
@@ -801,7 +848,7 @@ nav .SearchBox {
 }
 
 input, button, select {
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 5px;
 }
 
@@ -985,9 +1032,17 @@ footer .social-icon:hover {
 /* RESPONSIVE SECTION */
 /* ------------------ */
 
-@media (max-width: 1270px) {
-    .logo h1 {
-            display: none;
+@media (max-width: 1150px) {
+    .logo {
+        width: 110px;
+    }
+    
+    .logo .title-full {
+        display: none;
+    }
+    
+    .logo .title-short {
+        display: block;
     }
 }
 
@@ -996,7 +1051,7 @@ footer .social-icon:hover {
         position: fixed;
         z-index: 2;
     }
-    
+
     main {
         margin-top: 50px;
     }
@@ -1055,6 +1110,10 @@ footer .social-icon:hover {
         }
       }
 
+    .responsive-nav-search {
+        display: flex;
+    }
+
     #open, 
     #open ul {
         
@@ -1104,6 +1163,11 @@ footer .social-icon:hover {
 
     .responsive-nav-menu .active {
         color: #dd8500;
+    }
+
+    .SearchSomething {
+        width: calc(80% - 20px);
+        left: 10%;
     }
 
     .Hero .wrapper {
@@ -1157,6 +1221,11 @@ footer .social-icon:hover {
     
     #noThumbnail {
         margin-left: 0;
+    }
+
+    .SearchSomething {
+        width: calc(99% - 20px);
+        left: 0;
     }
 
     .HeroRight div {

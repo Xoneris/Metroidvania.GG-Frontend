@@ -27,11 +27,17 @@ function Search () {
         <>
             <div className="SearchSomething">
                 <div className="SearchContent">
-                    <h2>Search</h2>
+                    <div className="wrapper" style={{justifyContent: "space-between"}}>
+                        <h2>Search</h2>
+                        <div className="search-close-icon" onClick={() => {searchBox.setShowSearch(false)}}>
+                            &#10060;
+                        </div>
+                    </div>
                     <div className="searchBox">
-                        <input type="text" default="cool game" onChange={inputHandler} />
+                        <input type="text" placeholder="Metroidvania..." onChange={inputHandler} />
                     </div>
                     <hr/>
+                    
                     <div className="wrapper">
                     {
                     search.length > 1 ? 

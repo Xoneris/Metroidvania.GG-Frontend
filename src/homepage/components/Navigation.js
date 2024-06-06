@@ -1,9 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { searchBoxContext } from '../Homepage';
 
+
+    
 function Navigation() {
 
     const [navOpen, setNavOpen] = useState(false)
+    const searchBox = useContext(searchBoxContext)
 
     return (
         <nav>
@@ -25,27 +29,22 @@ function Navigation() {
                 <NavLink to="/Demo"><li>Demos</li></NavLink>
                 <NavLink to="/Released"><li>Released</li></NavLink>
                 <NavLink to="/AllGames"><li>All Games</li></NavLink>
-                <NavLink to="/Search"><li>Search</li></NavLink>
-
-                {/* <div>
-                    <input type="text" />
-                    <img src="/assets/icons/search-icon.svg" className="SearchIcon" alt="search-icon" />
+                {/* <NavLink to="/Search"><li>Search</li></NavLink> */}
+                <div className="nav-search">
+                    <input type="text" onClick={() => {searchBox.setShowSearch(!searchBox.showSearch)}}  />
                 </div>
                 
-
-                
-                <div className="SearchBox">
-                    <input type="text" />
-                </div> */}
-                
             </ul>
-
-            <div className="responsive-menu-icon" onClick={() => setNavOpen(!navOpen)}>
-                <span></span>
-                <span></span>
-                <span></span>
+            <div className="wrapper">
+                <div className="responsive-nav-search">
+                    <input type="text" onClick={() => {searchBox.setShowSearch(!searchBox.showSearch)}}  />
+                </div>
+                <div className="responsive-menu-icon" onClick={() => setNavOpen(!navOpen)}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            
             
 
             <div className="responsive-nav-menu" id={navOpen ? "open" : "closed"}>
@@ -66,7 +65,7 @@ function Navigation() {
                 <NavLink to="/Demo" onClick={() => setNavOpen(!navOpen)}><li>Demos</li></NavLink><hr/>
                 <NavLink to="/Released" onClick={() => setNavOpen(!navOpen)}><li>Released</li></NavLink><hr/>
                 <NavLink to="/AllGames" onClick={() => setNavOpen(!navOpen)}><li>All Games</li></NavLink><hr/>
-                <NavLink to="/Search" onClick={() => setNavOpen(!navOpen)}><li>Search</li></NavLink><hr/>
+                {/* <NavLink to="/Search" onClick={() => setNavOpen(!navOpen)}><li>Search</li></NavLink><hr/> */}
             </ul>
             </div>
         </nav>
