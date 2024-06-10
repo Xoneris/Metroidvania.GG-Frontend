@@ -38,6 +38,30 @@ function SinglePage (props) {
             pageName = "Upcoming Kickstarters";
             fetchUrl = apiBaseUrl + "/api/games/kickstarter/upcoming/"
             break;
+        case "Steam":
+            pageName = "Games on Steam";
+            fetchUrl = apiBaseUrl + "/api/games/steam/"
+            break;
+        case "Epic":
+            pageName = "Games on Epic";
+            fetchUrl = apiBaseUrl + "/api/games/epic/"
+            break;
+        case "GOG":
+            pageName = "Games on GOG";
+            fetchUrl = apiBaseUrl + "/api/games/gog/"
+            break;
+        case "Playstation":
+            pageName = "Games on Playstation";
+            fetchUrl = apiBaseUrl + "/api/games/playstation/"
+            break;
+        case "Xbox":
+            pageName = "Games on Xbox";
+            fetchUrl = apiBaseUrl + "/api/games/xbox/"
+            break;
+        case "Switch":
+            pageName = "Games on Switch";
+            fetchUrl = apiBaseUrl + "/api/games/switch/"
+            break;
     }
 
     return (
