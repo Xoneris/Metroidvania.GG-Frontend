@@ -9,16 +9,13 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import SingleGamePage from './components/SingleGamePage';
 
-import Contact from './components/Contact';
 import SinglePage from './components/SinglePage';
 import AllGames from './components/AllGames';
 import Released from './components/Released';
-import NotFound from './components/NotFound';
 import Search from './components/Search';
-import Search_old from './components/Search_old';
 import Loading from './components/Loading';
+import ChangelogPage from './components/ChangelogPage';
 
-import KoFiWidget from './components/KoFiWidget';
 
 export const apiUrlContext = createContext();
 export const searchBoxContext = createContext()
@@ -32,8 +29,11 @@ function Homepage () {
     const [showSearch, setShowSearch] = useState(false)
 
     return (
+
         <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
-        {/* <apiUrlContext.Provider value="http://192.168.1.2:8000"> */}
+        {/* // <apiUrlContext.Provider value="http://192.168.1.2:8000"> */}
+        {/* // <apiUrlContext.Provider value="http://127.0.0.1:8000"> */}
+
         <searchBoxContext.Provider value={{showSearch, setShowSearch}}>
                 
             <Header/>
@@ -68,21 +68,19 @@ function Homepage () {
                     }></Route>
                     <Route path="/:gameSlug" element={<SingleGamePage/>}></Route>
                     <Route path="/Loading" element={<Loading/>}></Route>
-                    <Route path="/Search" element={<Search_old/>}></Route>
                     <Route path="/Steam" element={<SinglePage pageIdentifier="Steam"/>}></Route>
                     <Route path="/Epic" element={<SinglePage pageIdentifier="Epic"/>}></Route>
                     <Route path="/GOG" element={<SinglePage pageIdentifier="GOG"/>}></Route>
                     <Route path="/Playstation" element={<SinglePage pageIdentifier="Playstation"/>}></Route>
                     <Route path="/Xbox" element={<SinglePage pageIdentifier="Xbox"/>}></Route>
                     <Route path="/Switch" element={<SinglePage pageIdentifier="Switch"/>}></Route>
+                    <Route path="/Changelog" element={<ChangelogPage/>}></Route>
                     {/* <Route path="/Contact" element={<Contact />}></Route>
                     <Route path="*" element={<NotFound/>}></Route> */}
                 </Routes>
 
             </main>
             <Footer />
-
-            <KoFiWidget/>
 
         </searchBoxContext.Provider>
         </apiUrlContext.Provider>

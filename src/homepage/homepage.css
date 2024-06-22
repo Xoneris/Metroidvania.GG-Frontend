@@ -952,6 +952,28 @@ input, button, select {
     transform: scale(1.2);
 }
 
+/* ----------------- */
+/* Changelog SECTION */
+/* ----------------- */
+
+.ChangelogPage {
+    width: calc(100% - 20px);
+    max-width: 1920px;
+    display:block;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+.ChangelogPage h3 {
+    margin: 0;
+}
+
+.ChangelogPage card {
+    padding: 5px;
+    width: 80%;
+}
+
 /* -------------- */
 /* FOOTER SECTION */
 /* -------------- */
