@@ -5,6 +5,6 @@ The **main** goal of the website is to signalboost metroidvanias that have eithe
 
 ## Frontend
 
-Note: The repo for the backend of this site resides here: [https://github.com/Xoneris/Metroidvania.GG-Backend](https://github.com/Xoneris/Metroidvania.GG-Backend)
+Note: The repo for the backend of this site resides here: [https://github.com/Xoneris/Metroidvania.GG-Backend-Django](https://github.com/Xoneris/Metroidvania.GG-Backend-Django)
 
 The frontend of this website was made with [Create React App](https://github.com/facebook/create-react-app).
