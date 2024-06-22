@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import ChangelogCard from "./ChangelogCard";
 
 function ChangelogPage () {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    })
 
     return (
         <section className="ChangelogPage">
@@ -16,7 +21,8 @@ function ChangelogPage () {
                 <ChangelogCard 
                     changelogDate="June 22nd"
                     changelogArray={[
-                        'Added a Changelog page to the website. So changelogs can be viewed on the website aswell and not just on the Discord',
+                        'Added a changelog page to the website. So changelogs can be viewed on the website aswell and not just on the Discord',
+                        'The changelog page can be access via the Useful Link in the footer'
                     ]}
                 />
                 <ChangelogCard 

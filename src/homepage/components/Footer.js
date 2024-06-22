@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons'
 
 function Footer () {
@@ -24,6 +25,7 @@ function Footer () {
                     <ul>
                         <li><a href="https://demajen.co.uk" target="_blank">Demajen's Metroidvania Maps</a></li>
                         <li><a href="https://reddit.com/r/metroidvania/" target="_blank">Metroidvania Subreddit</a></li>
+                        <li><Link to="/changelog">Changelog</Link></li>
                     </ul>
 
                 </div>
