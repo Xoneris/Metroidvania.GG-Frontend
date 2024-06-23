@@ -22,7 +22,8 @@ function ChangelogPage () {
                     changelogDate="June 22nd"
                     changelogArray={[
                         'Added a changelog page to the website. So changelogs can be viewed on the website aswell and not just on the Discord',
-                        'The changelog page can be access via the Useful Link in the footer'
+                        'The changelog page can be access via the Useful Link in the footer',
+                        'Added 3 more games releasing in July.'
                     ]}
                 />
                 <ChangelogCard 
