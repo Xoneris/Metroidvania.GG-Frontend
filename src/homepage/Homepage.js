@@ -8,14 +8,13 @@ import Footer from './components/Footer';
 
 import Home from './components/Home';
 import SingleGamePage from './components/SingleGamePage';
-
+import Search from './components/Search';
 import SinglePage from './components/SinglePage';
 import AllGames from './components/AllGames';
 import Released from './components/Released';
-import Search from './components/Search';
 import Loading from './components/Loading';
 import ChangelogPage from './components/ChangelogPage';
-
+import Dashboard from './components/Dashboard/Dashboard';
 
 export const apiUrlContext = createContext();
 export const searchBoxContext = createContext()
@@ -48,7 +47,6 @@ function Homepage () {
                 {
                     showSearch ? 
                     <Search/>
-                    // <Search showSearch={showSearch} setShowSearch={setShowSearch}/>
                     : null
                 }
                 <Routes>
@@ -75,6 +73,10 @@ function Homepage () {
                     <Route path="/Xbox" element={<SinglePage pageIdentifier="Xbox"/>}></Route>
                     <Route path="/Switch" element={<SinglePage pageIdentifier="Switch"/>}></Route>
                     <Route path="/Changelog" element={<ChangelogPage/>}></Route>
+
+                    <Route path="/Dashboard" element={<Dashboard/>}></Route>
+                    <Route path="/Dashboard/*" element={<Dashboard/>}></Route>
+
                     {/* <Route path="/Contact" element={<Contact />}></Route>
                     <Route path="*" element={<NotFound/>}></Route> */}
                 </Routes>
