@@ -19,6 +19,12 @@ function ChangelogPage () {
                     ]}
                 /> */}
                 <ChangelogCard 
+                    changelogDate="July 12th"
+                    changelogArray={[
+                        'Added 4 new games submitted via the form',
+                    ]}
+                />
+                <ChangelogCard 
                     changelogDate="June 22nd"
                     changelogArray={[
                         'Added a changelog page to the website. So changelogs can be viewed on the website aswell and not just on the Discord',
