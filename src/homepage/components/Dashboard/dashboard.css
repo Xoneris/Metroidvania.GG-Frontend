@@ -1,15 +1,46 @@
+.loginpage {
+  width: 100%;
+  flex-grow: 1;
+  max-width: 1920px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginpage .login {
+  width: 500px;
+  height: 300px;
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginpage .login form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.loginpage .login h2 {
+  padding: 0;
+  text-align: center;
+}
+
 .dashboard {
   width: 100%;
   flex-grow: 1;
   max-width: 1920px;
-  display: block;
+  display: flex;
   margin: 0 auto;
 }
 .dashboard .wrapper {
-  height: 100%;
+  min-height: 100%;
 }
 .dashboard .dashboard-nav {
   width: 15%;
+  min-height: 100%;
   background-color: #111111;
   color: #999999;
 }
@@ -44,18 +75,60 @@
   height: 100%;
   height: 100%;
   padding: 10px;
+  overflow-x: scroll;
 }
 .dashboard .dashboard-content table {
   width: 100%;
 }
-.dashboard .dashboard-content table th {
+.dashboard .dashboard-content table thead {
   background-color: #111111;
   color: #dd8500;
   text-align: left;
 }
-.dashboard .dashboard-content table tbody:nth-child(odd) {
+.dashboard .dashboard-content table tbody:nth-child(even) {
   background-color: #cccccc;
 }
 .dashboard .dashboard-content table th, .dashboard .dashboard-content table td {
   padding-left: 5px;
+}
+.dashboard .dashboard-content .fullEditContainer {
+  border: 1px solid red;
+  height: 100px;
+}
+.dashboard .dashboard-content #open {
+  display: block;
+}
+.dashboard .dashboard-content #closed {
+  display: none;
+}
+.dashboard .ReportMenu {
+  display: flex;
+  justify-content: left;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+}
+.dashboard .ReportMenu div {
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+  margin-right: 3px;
+  margin-bottom: -1px;
+  background-color: #999999;
+}
+.dashboard .ReportMenu div :hover {
+  color: #dd8500;
+}
+.dashboard .ReportMenu .active {
+  border-bottom: 1px solid #EEEEEE;
+  background-color: #EEEEEE;
+}
+.dashboard .AddNewGameContainer {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }/*# sourceMappingURL=dashboard.css.map */

@@ -16,7 +16,7 @@ function SteamReview (props) {
             console.log(error)
         })
 
-    })
+    }, [])
 
     return (
         <>

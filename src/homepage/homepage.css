@@ -859,8 +859,8 @@ input, button, select {
 /* ----------------- */
 
 .GameView {
-    display: flex;
-    justify-content: center;
+    display: block;
+    position: relative;
     /* width: 1210px; */
     margin: 10px auto;
     padding: 5px;
@@ -870,6 +870,70 @@ input, button, select {
 .GameView-right {
     border: 1px solid green;
 } */
+
+.ReportButton {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom : 50%;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #dd8500;
+    z-index: 5;
+}
+
+.ReportContainer {
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    bottom : 25%;
+    right: 80px;
+    width: 300px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: #111111;
+    border: 1px solid #dd8500;
+    color: #eeeeee;
+    z-index: 5;
+    box-shadow: 3px 3px 5px 1px black;
+}
+
+.ReportContainer form {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+.ReportContainer form h2 {
+    text-align: center;
+    color: #dd8500;
+}
+
+.ReportContainer form p {
+    text-align: center;
+}
+
+.ReportContainer textarea {
+    width: 290px;
+    height: 200px;
+    box-sizing: border-box;
+    resize: none;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.GameView #show {
+    display: flex;
+}
+
+.GameView #hide {
+    display: none;
+}
 
 .GameView h2, .GameView h3 {
     margin: 2px 0;
@@ -888,7 +952,7 @@ input, button, select {
 
 .GameView iframe {
     width: 100%;
-    max-width: 1000px;
+    width: 1000px;
     height: auto;
     aspect-ratio: 16 / 9;
     border: 1px solid black;
@@ -972,6 +1036,100 @@ input, button, select {
 .ChangelogPage card {
     padding: 5px;
     width: 80%;
+}
+
+/* -------------- */
+/* SUBMIT SECTION */
+/* -------------- */
+
+.SubmitGamePage {
+    width: calc(100% - 20px);
+    max-width: 1920px;
+    display:block;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.SubmitGameContainer {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+}
+
+.formPageTitleContainer {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding: 0 5px;
+    margin: 10px 0;
+}
+
+.formPageTitleContainer ul {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.formPageTitleContainer li {
+    padding: 0 5px;
+    margin-bottom: -1px;
+    font-size: 20px;
+    color: grey ;
+    list-style: none;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    cursor: not-allowed;
+}
+
+.formPageTitleContainer li::after {
+    content: ' ❌';
+}
+
+.formPageTitleContainer .active {
+    color: black;
+    border-bottom: 1px solid #eeeeee;
+    cursor: default;
+}
+
+.formPageTitleContainer .done {
+    color: black;
+    cursor: pointer;
+}
+
+.formPageTitleContainer .done::after {
+    content: ' ✅';
+}
+
+.test {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.SubmitGameContainer .error {
+    border: 1px solid red;
+}
+.SubmitGameContainer .errorMessage {
+   color: red;
+}
+
+.SubmitGameContainer textarea {
+    height: 200px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.formButtonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
 }
 
 /* -------------- */

@@ -15,6 +15,8 @@ import Released from './components/Released';
 import Loading from './components/Loading';
 import ChangelogPage from './components/ChangelogPage';
 import Dashboard from './components/Dashboard/Dashboard';
+import Login from './components/Dashboard/Login';
+import SubmitGame from './components/SubmitGame';
 
 export const apiUrlContext = createContext();
 export const searchBoxContext = createContext()
@@ -29,9 +31,9 @@ function Homepage () {
 
     return (
 
-        <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
-        {/* // <apiUrlContext.Provider value="http://192.168.1.2:8000"> */}
-        {/* // <apiUrlContext.Provider value="http://127.0.0.1:8000"> */}
+        // <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
+        // <apiUrlContext.Provider value="http://192.168.1.2:8000">
+        <apiUrlContext.Provider value="http://127.0.0.1:8000">
 
         <searchBoxContext.Provider value={{showSearch, setShowSearch}}>
                 
@@ -73,6 +75,8 @@ function Homepage () {
                     <Route path="/Xbox" element={<SinglePage pageIdentifier="Xbox"/>}></Route>
                     <Route path="/Switch" element={<SinglePage pageIdentifier="Switch"/>}></Route>
                     <Route path="/Changelog" element={<ChangelogPage/>}></Route>
+                    <Route path="/Submit" element={<SubmitGame/>}></Route>
+                    <Route path="/Login" element={<Login/>}></Route>
 
                     <Route path="/Dashboard" element={<Dashboard/>}></Route>
                     <Route path="/Dashboard/*" element={<Dashboard/>}></Route>
