@@ -31,9 +31,9 @@ function Homepage () {
 
     return (
 
-        // <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
-        // <apiUrlContext.Provider value="http://192.168.1.2:8000">
-        <apiUrlContext.Provider value="http://127.0.0.1:8000">
+        <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
+        {/* // <apiUrlContext.Provider value="http://192.168.1.2:8000"> */}
+        {/* // <apiUrlContext.Provider value="http://127.0.0.1:8000"> */}
 
         <searchBoxContext.Provider value={{showSearch, setShowSearch}}>
                 
