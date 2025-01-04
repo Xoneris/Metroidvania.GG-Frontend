@@ -97,6 +97,7 @@ header {
 
 header .wrapper {
     max-width: 1920px;
+    margin: auto;
     justify-content: space-between;
 }
 
