@@ -13,9 +13,8 @@ function Home () {
             <FrontpageContentSection SectionIdentifier="Demo"/>
             <FrontpageContentSection SectionIdentifier="EarlyAccess"/>
             <FrontpageContentSection SectionIdentifier="Kickstarter"/>
-            <FrontpageContentSection SectionIdentifier="2024"/>
             <FrontpageContentSection SectionIdentifier="2025"/>
-            {/* <FrontpageContentSection SectionIdentifier="2026"/> */}
+            <FrontpageContentSection SectionIdentifier="2026"/>
             <FrontpageContentSection SectionIdentifier="TBD"/>
         </div>
     )
