@@ -150,7 +150,7 @@ function SingleGamePage (props) {
                 </div>
             </div>
 
-            <div className="ReportButton" onClick={() => {setShowReportField(!showReportField)}}>
+            {/* <div className="ReportButton" onClick={() => {setShowReportField(!showReportField)}}>
                 <b>!</b>
             </div>
             <div className="ReportContainer" id={showReportField ? "show" : "hide"} >
@@ -162,7 +162,7 @@ function SingleGamePage (props) {
                     <button type="submit">Submit Report</button>
                     {response ? <p>{response}</p> : null}
                 </form>
-            </div>
+            </div> */}
 
         </section>
     )

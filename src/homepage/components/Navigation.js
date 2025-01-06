@@ -17,9 +17,9 @@ function Navigation() {
                     <li>In Development</li>
                     <div className="dropdown-content">
                         <ul>
-                            <NavLink to="/2024"><li>2024</li></NavLink >
+                            {/* <NavLink to="/2024"><li>2024</li></NavLink > */}
                             <NavLink to="/2025"><li>2025</li></NavLink>
-                            {/* <NavLink to="/2026"><li>2026</li></NavLink> */}
+                            <NavLink to="/2026"><li>2026</li></NavLink>
                             <NavLink to="/TBD"><li>TBD</li></NavLink>
                             <NavLink to="/EarlyAccess"><li>Early Access</li></NavLink>
                             <NavLink to="/Kickstarter"><li>Upcoming Kickstarter</li></NavLink>
