@@ -83,7 +83,7 @@ function SingleGamePage (props) {
 
     return (
         <section className="GameView">
-            <div className="wrapper">
+            {/* <div className="wrapper"> */}
                 <div className="GameView-left">
                 <h2>{gamesData.name}</h2>
                     <img src={'/assets/thumbnails/' + gamesData.slug + '.jpg'} alt={gamesData.name} title={gamesData.name}  />
@@ -148,7 +148,7 @@ function SingleGamePage (props) {
                         { gamesData.nintendo && (<li><a href={gamesData.nintendo} target="_blank"><img src="/assets/icons/nintendo-switch.png" alt="Nintendo Switch Logo" /></a></li>) }
                     </ul>
                 </div>
-            </div>
+            {/* </div> */}
 
             {/* <div className="ReportButton" onClick={() => {setShowReportField(!showReportField)}}>
                 <b>!</b>

@@ -860,8 +860,9 @@ input, button, select {
 /* ----------------- */
 
 .GameView {
-    display: block;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    /* position: relative; */
     /* width: 1210px; */
     margin: 10px auto;
     padding: 5px;
@@ -953,7 +954,7 @@ input, button, select {
 
 .GameView iframe {
     width: 100%;
-    width: 1000px;
+    max-width: 1000px;
     height: auto;
     aspect-ratio: 16 / 9;
     border: 1px solid black;
@@ -1432,6 +1433,8 @@ footer .social-icon:hover {
         
         z-index: 1;
     }
+
+    .GameView 
 
     .footerContent {
         width: 100%;
