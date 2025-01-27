@@ -1,72 +1,63 @@
 import {useState, useEffect, useContext, useRef} from 'react';
 import { Link } from 'react-router-dom';
-import { apiUrlContext } from "../Homepage";
-import Loading from './Loading';
-import Carousel from 'react-bootstrap/Carousel';
 
-function Hero2 () {
+function Hero2 (props) {
 
-    
-    const [loading, setLoading] = useState(false);
+    const [heroTrailer, setHeroTrailer] = useState()
 
-    const [kickstarterGame, setKickstarterGame] = useState([]);
-    const [recentReleaseGame, setRecentReleaseGame] = useState([]);
-    const [comingSoonGame, setComingSoonGame] =  useState([]);
-    const [earlyAccessGame, setEarlyAccessGame] = useState([]);
-
-    const [heroTrailer, setHeroTrailer] = useState();
-
-    const apiBaseUrl = useContext(apiUrlContext);
-
-
-    useEffect(() => {
-        setLoading(true);
-
-        fetch(apiBaseUrl + "/api/games/kickstarter/live/")
-        .then((response) => {return response.json()})
-        .then(data => {setKickstarterGame(data)})
-        .catch((error) => console.log(error))
-
-        fetch(apiBaseUrl + "/api/games/recentlyreleased/")
-        .then((response) => {return response.json()})
-        .then(data => {setRecentReleaseGame(data)})
-        .catch((error) => console.log(error))
-
-        fetch(apiBaseUrl + "/api/games/comingsoon/")
-        .then((response) => {return response.json()})
-        .then(data => {setComingSoonGame(data)})
-        .catch((error) => console.log(error))
-
-        fetch(apiBaseUrl + "/api/games/earlyaccess/")
-        .then((response) => {return response.json()})
-        .then(data => {setEarlyAccessGame(data)})
-        .catch((error) => console.log(error))
-
-        // fetch(apiBaseUrl + "/api/games/")
-        // .then((response) => {return response.json()})
-        // .then(data => {
-        //     setGamesData(data);
-        //     setLoading(false);
-        // })
-        // .catch((error) => console.log(error))
-
-        
-
-        window.scrollTo(0, 0);
-        setLoading(false);
-
-    }, []);
-
-
-
-    if (loading) {
-        return <Loading/>
-    }
-    
     return (
         <section className="Hero">
             <div className="wrapper">
-                
+                <div className="HeroLeft">
+                    <iframe title="Hero-Trailer"
+                        src={"https://www.youtube.com/embed/" + heroTrailer.trailer}>
+                    </iframe>
+                    <Link to={"/" + heroTrailer.slug} key={heroTrailer.id}>
+                        <span><b>More info!</b></span>
+                    </Link>
+                </div>
+                <div className="HeroRight">
+                    {
+                        <div id={heroTrailer.trailer === props.games[0]?.trailer ? "active" : null } key={props.games[0]?.id}>
+                            <span className="HeroGameSection">Latest Release</span>
+                            <img src={'/assets/thumbnails/' + props.games[0]?.slug + '.jpg'} 
+                                alt={props.games[0]?.name} 
+                                title={props.games[0]?.name} 
+                                onClick={() => {setHeroTrailer(props.games[0])}} 
+                            />
+                        </div>
+                    }
+                    {
+                        <div id={heroTrailer.trailer === props.games[1]?.trailer ? "active" : null } key={props.games[1]?.id}>
+                            <span className="HeroGameSection">Coming Up Next</span>
+                            <img src={'/assets/thumbnails/' + props.games[1]?.slug + '.jpg'} 
+                                alt={props.games[1]?.name} 
+                                title={props.games[1]?.name} 
+                                onClick={() => {setHeroTrailer(props.games[1])}} 
+                            />
+                        </div>
+                    }
+                    {
+                        props.games[2]
+                        ? <div id={heroTrailer.trailer === props.games[2]?.trailer ? "active" : null } key={props.games[2]?.id}>
+                            <span className="HeroGameSection">Live on Kickstarter</span>
+                            <img src={'/assets/thumbnails/' + props.games[2]?.slug + '.jpg'} 
+                                alt={props.games[2]?.name} 
+                                title={props.games[2]?.name} 
+                                onClick={() => {setHeroTrailer(props.games[2])}} 
+                            />
+                        </div>
+                        : <div id={heroTrailer.trailer === props.games[3]?.trailer ? "active" : null } key={props.games[3]?.id}>
+                            <span className="HeroGameSection">Soon on Kickstarter</span>
+                            <img src={'/assets/thumbnails/' + props.games[3]?.slug + '.jpg'} 
+                                alt={props.games[3]?.name} 
+                                title={props.games[3]?.name} 
+                                onClick={() => {setHeroTrailer(props.games[3])}} 
+                            />
+                        </div>
+                    }
+                    
+                </div>
             </div>
         </section>
     )
