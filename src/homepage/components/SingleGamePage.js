@@ -107,7 +107,7 @@ function SingleGamePage (props) {
                     <>
                         <h3>Steam reviews:</h3>
                         <ul>
-                            <li><SteamReview steamAppID={gamesData.steam ? gamesData.steam.split("/")[4] : null}/></li>
+                            <li><SteamReview steamAppID={gamesData.steam?.split("/")[4]}/></li>
                         </ul>
                         <hr/>
                     </>

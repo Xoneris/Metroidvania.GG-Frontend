@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import GameThumbnail from './GameThumbnail';
+import Loading from './Loading';
 
 function FrontpageContentSection2 (props) {
 
@@ -16,10 +17,11 @@ function FrontpageContentSection2 (props) {
             <hr/>
             <div className="wrapper">
                 {
-                    props.games.map(game => (
-                        <GameThumbnail game={game} key={game.id}/>
-                    ))
-                    
+                    props.games !== undefined
+                        ? props.games?.map(game => (
+                            <GameThumbnail game={game} key={game.id}/>
+                        ))
+                        : <Loading/>
                 }
             </div>
         </section>
