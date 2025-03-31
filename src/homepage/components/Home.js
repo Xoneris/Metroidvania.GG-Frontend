@@ -36,7 +36,7 @@ function Home () {
         // </div>
         <div className='Home'>
             <Hero2 games={homeGames?.bannerSection} />
-            <FrontpageContentSection2 title="Comming Soon" games={homeGames?.upcomingGames}/>
+            <FrontpageContentSection2 title="Coming Soon" games={homeGames?.upcomingGames}/>
             <FrontpageContentSection2 title="Recently Released" games={homeGames?.recentlyReleased}/>
             <FrontpageContentSection2 title="Games with Demos" games={homeGames?.gamesWithDemos}/>
             <FrontpageContentSection2 title="In Early Access" games={homeGames?.earlyAccessGames}/>
