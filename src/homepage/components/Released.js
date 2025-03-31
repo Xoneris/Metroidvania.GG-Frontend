@@ -108,29 +108,40 @@ function Released({yearSelect, setYearSelect}) {
                 </select>
 
             </div>
-            {/* .filter((month) => currentYear === yearSelect && currentMonth >= month.month_number) */}
-            {months.reverse().map(month => (
+            {
+                // months.reverse().map(month => (
+                //     gamesData.filter((game) => game.release_date.split("-")[0] === yearSelect && game.release_date.split("-")[1] === month).length > 0
+                //     ? <>
+
+                //         <h3>{month.month_name}</h3>
+                //         <hr/>
+                //         <div className="wrapper">
+                //             {
+                //                 gamesData.filter((game) => game.release_date.split("-")[0] === yearSelect && game.release_date.split("-")[1] === month).map(game => (
+                //                     <GameThumbnail game={game} key={game.id}/>
+                //                 ))
+                //             }
+                //         </div>
+
+                //     </>
+                //     : <h1>No Releases this year so far!</h1>
+                // ))
+                months.reverse().map(month => (
                 <>
                     <h3>{month.month_name}</h3>
                     <hr/>
-                    {/* {currentYear === yearSelect && currentMonth >= month.month_number ?
-                    <>
-                        <h3>{month.month_name}</h3>
-                        <hr/>
-                    </> : 
-                    null} */}
                     <div className="wrapper">
                         {gamesData.filter((game) => 
                             game.release_date !== null &&
                             game.release_date[5] + game.release_date[6] === month.month_number &&
                             game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === yearSelect
-                            // game.release_date[0] + game.release_date[1] + game.release_date[2] + game.release_date[3] === rememberReleaseYearContext.yearSelect
                             ).map(game => (
                             <GameThumbnail game={game} key={game.id}/>
                         ))}
                     </div>
                 </>
-            ))}
+                ))
+            }
         </section>
     )
 }

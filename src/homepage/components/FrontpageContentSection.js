@@ -35,10 +35,6 @@ function FrontpageContentSection (props) {
             SectionName = "Upcoming Kickstarter";
             fetchUrl = apiBaseUrl + "/api/games/kickstarter/upcoming/";
             break;
-        case "2024":
-            SectionName = "Releasing in 2024";
-            fetchUrl = apiBaseUrl + "/api/games/2024/";
-            break;
         case "2025":
             SectionName = "Releasing in 2025";
             fetchUrl = apiBaseUrl + "/api/games/2025/";

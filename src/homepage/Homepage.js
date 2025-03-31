@@ -31,17 +31,18 @@ function Homepage () {
 
     return (
 
-        <apiUrlContext.Provider value="https://xoneris.pythonanywhere.com">
-        {/* // <apiUrlContext.Provider value="http://192.168.1.2:8000"> */}
-        {/* // <apiUrlContext.Provider value="http://127.0.0.1:8000"> */}
+        <apiUrlContext.Provider value="https://metroidvania.gg">
+        {/* <apiUrlContext.Provider value="http://192.168.1.6:8000">
+        <apiUrlContext.Provider value="http://127.0.0.1:8000">  */}
 
         <searchBoxContext.Provider value={{showSearch, setShowSearch}}>
                 
             <Header/>
             <main>
                 <section className="Announcments" id={announcmentClose ? "Announcment-closed" : null}>
-                    <h5>This website is currently in <i>"Early Access"</i>, meaning most features and functionality is here, but there are still a lot of Metroidvania games missing. </h5>
-                    <h5>If you are a Developer or just want to help adding missing Games, please submit them &gt;&gt;<a href="https://docs.google.com/forms/d/e/1FAIpQLScwQfT1vya8rDzjwE9nYxAAxMjtI8prRcidbDTguhh1XmwZ8A/viewform" target='_blank'>here</a>&lt;&lt; </h5>
+                    {/* <h5>This website is currently in <i>"Early Access"</i>, meaning most features and functionality is here, but there are still a lot of Metroidvania games missing. </h5>
+                    <h5>If you are a Developer or just want to help adding missing Games, please submit them &gt;&gt;<a href="https://docs.google.com/forms/d/e/1FAIpQLScwQfT1vya8rDzjwE9nYxAAxMjtI8prRcidbDTguhh1XmwZ8A/viewform" target='_blank'>here</a>&lt;&lt; </h5> */}
+                    <h5>You are currently on the old Metroidvania.GG website. I'm not exactly sure how you got here, but please use the new modern website! &gt;&gt;<a href="https://metroidvania.gg">here</a>&lt;&lt;</h5>
                     <div className="Announcment-close-icon" onClick={() => {setAnnouncmentClose(true)}}>
                         &#10060;
                     </div>
